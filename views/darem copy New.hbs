@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="johnlaurence" content="" />
+  <title>PROJECT DAREM</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  
+  <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+  <linkhref="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"  rel="stylesheet">
+
+
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="assets/img/cta-bg.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+  <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="nav-fixed">
+  <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
+    id="sidenavAccordion">
+    <!-- Sidenav Toggle Button-->
+    <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle">
+      <i data-feather="menu"></i>
+    </button>
+    <!-- Navbar Brand-->
+    <!-- * * Tip * * You can use text or an image for your navbar brand.-->
+    <!-- * * * * * * When using an image, we recommend the SVG format.-->
+    <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+    <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/darem"><img class="img-fluid" style="height: 120px; widght: 120px  " src="/daremlogo.png" /></a>
+
+    <!-- Navbar Items-->
+    <ul class="navbar-nav align-items-center ms-auto">
+      {{!-- <!-- Documentation Dropdown-->
+      <li class="nav-item dropdown no-caret d-none d-md-block me-3">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button"
+          data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="fw-500">Documentation</div>
+          <i class="fas fa-chevron-right dropdown-arrow"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end py-0 me-sm-n15 me-lg-0 o-hidden animated--fade-in-up"
+          aria-labelledby="navbarDropdownDocs">
+          <a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro" target="_blank">
+            <div class="icon-stack bg-primary-soft text-primary me-4">
+              <i data-feather="book"></i>
+            </div>
+            <div>
+              <div class="small text-gray-500">Documentation</div>
+              Usage instructions and reference
+
+            </div>
+          </a>
+          <div class="dropdown-divider m-0"></div>
+          <a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro/components" target="_blank">
+            <div class="icon-stack bg-primary-soft text-primary me-4">
+              <i data-feather="code"></i>
+            </div>
+            <div>
+              <div class="small text-gray-500">Components</div>
+              Code snippets and reference
+
+            </div>
+          </a>
+          <div class="dropdown-divider m-0"></div>
+          <a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro/changelog" target="_blank">
+            <div class="icon-stack bg-primary-soft text-primary me-4">
+              <i data-feather="file-text"></i>
+            </div>
+            <div>
+              <div class="small text-gray-500">Changelog</div>
+              Updates and changes
+
+            </div>
+          </a>
+        </div>
+      </li>
+      <!-- Navbar Search Dropdown-->
+      <!-- * * Note: * * Visible only below the lg breakpoint-->
+      <li class="nav-item dropdown no-caret me-3 d-lg-none">
+        <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="searchDropdown" href="#" role="button"
+          data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i data-feather="search"></i>
+        </a>
+        <!-- Dropdown - Search-->
+        <div class="dropdown-menu dropdown-menu-end p-3 shadow animated--fade-in-up" aria-labelledby="searchDropdown">
+          <form class="form-inline me-auto w-100">
+            <div class="input-group input-group-joined input-group-solid">
+              <input class="form-control pe-0" type="text" placeholder="Search for..." aria-label="Search"
+                aria-describedby="basic-addon2" />
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+      <!-- Alerts Dropdown-->
+      <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+        <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts"
+          href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i data-feather="bell"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+          aria-labelledby="navbarDropdownAlerts">
+          <h6 class="dropdown-header dropdown-notifications-header">
+            <i class="me-2" data-feather="bell"></i>
+            Alerts Center
+
+          </h6>
+          <!-- Example Alert 1-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <div class="dropdown-notifications-item-icon bg-warning">
+              <i data-feather="activity"></i>
+            </div>
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-details">December 29, 2021</div>
+              <div class="dropdown-notifications-item-content-text">This is an alert message. It's nothing serious, but
+                it requires your attention.</div>
+            </div>
+          </a>
+          <!-- Example Alert 2-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <div class="dropdown-notifications-item-icon bg-info">
+              <i data-feather="bar-chart"></i>
+            </div>
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-details">December 22, 2021</div>
+              <div class="dropdown-notifications-item-content-text">A new monthly report is ready. Click here to view!
+              </div>
+            </div>
+          </a>
+          <!-- Example Alert 3-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <div class="dropdown-notifications-item-icon bg-danger">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-details">December 8, 2021</div>
+              <div class="dropdown-notifications-item-content-text">Critical system failure, systems shutting down.
+              </div>
+            </div>
+          </a>
+          <!-- Example Alert 4-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <div class="dropdown-notifications-item-icon bg-success">
+              <i data-feather="user-plus"></i>
+            </div>
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-details">December 2, 2021</div>
+              <div class="dropdown-notifications-item-content-text">New user request. Woody has requested access to the
+                organization.</div>
+            </div>
+          </a>
+          <a class="dropdown-item dropdown-notifications-footer" href="#!">View All Alerts</a>
+        </div>
+      </li>
+      <!-- Messages Dropdown-->
+      <li class="nav-item dropdown no-caret d-none d-sm-block me-3 dropdown-notifications">
+        <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownMessages"
+          href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i data-feather="mail"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+          aria-labelledby="navbarDropdownMessages">
+          <h6 class="dropdown-header dropdown-notifications-header">
+            <i class="me-2" data-feather="mail"></i>
+            Message Center
+
+          </h6>
+          <!-- Example Message 1  -->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <img class="dropdown-notifications-item-img" />
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              <div class="dropdown-notifications-item-content-details">Thomas Wilcox · 58m</div>
+            </div>
+          </a>
+          <!-- Example Message 2-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <img class="dropdown-notifications-item-img"  />
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              <div class="dropdown-notifications-item-content-details">Emily Fowler · 2d</div>
+            </div>
+          </a>
+          <!-- Example Message 3-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <img class="dropdown-notifications-item-img"  />
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              <div class="dropdown-notifications-item-content-details">Marshall Rosencrantz · 3d</div>
+            </div>
+          </a>
+          <!-- Example Message 4-->
+          <a class="dropdown-item dropdown-notifications-item" href="#!">
+            <img class="dropdown-notifications-item-img"  />
+            <div class="dropdown-notifications-item-content">
+              <div class="dropdown-notifications-item-content-text">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              <div class="dropdown-notifications-item-content-details">Colby Newton · 3d</div>
+            </div>
+          </a>
+          <!-- Footer Link-->
+          <a class="dropdown-item dropdown-notifications-footer" href="#!">Read All Messages</a>
+        </div>
+      </li> --}}
+      <!-- User Dropdown-->
+      <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+        <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
+          href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="img-fluid" src="assets/img/profile-1.png" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+          aria-labelledby="navbarDropdownUserImage">
+          <h6 class="dropdown-header d-flex align-items-center">
+            <img class="dropdown-user-img"  />
+            <div class="dropdown-user-details">
+              <div class="dropdown-user-details-name">Valerie Luna</div>
+              <div class="dropdown-user-details-email">
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="f88e948d9699b8999794d69b9795">[email &#160;protected]</a>
+              </div>
+            </div>
+          </h6>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#!">
+            <div class="dropdown-item-icon">
+              <i data-feather="settings"></i>
+            </div>
+            Account
+
+          </a>
+          <a class="dropdown-item" href="#!">
+            <div class="dropdown-item-icon">
+              <i data-feather="log-out"></i>
+            </div>
+            Logout
+
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="layoutSidenav">
+
+    <div id="layoutSidenav_nav">
+
+      <nav class="sidenav shadow-right sidenav-light">
+        <div class="sidenav-menu">
+          <div class="nav accordion" id="accordionSidenav">
+            <!-- Sidenav Menu Heading (Account)-->
+            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+            <div class="sidenav-menu-heading d-sm-none">Account</div>
+            <!-- Sidenav Link (Alerts)-->
+            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+            <a class="nav-link d-sm-none" href="#!">
+              <div class="nav-link-icon">
+                <i data-feather="bell"></i>
+              </div>
+              Alerts
+              <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
+            </a>
+            <!-- Sidenav Link (Messages)-->
+            <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+            <a class="nav-link d-sm-none" href="#!">
+              <div class="nav-link-icon">
+                <i data-feather="mail"></i>
+              </div>
+              Messages
+              <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
+            </a>
+            <!-- Sidenav Menu Heading (Core)-->
+            <div class="sidenav-menu-heading">Core</div>
+            <!-- Sidenav Accordion (Dashboard)-->
+            <a class="nav-link active" href="#">
+              <div class="nav-link-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              Dashboards
+            </a>
+
+            <!-- Sidenav Heading (Custom)-->
+            <div class="sidenav-menu-heading">Information</div>
+            <!-- Sidenav Accordion (Pages)-->
+            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+              data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              <div class="nav-link-icon">
+                <i data-feather="grid"></i>
+              </div>
+              Municipalities
+
+              <div class="sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </a>
+            <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
+              <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+                <!-- Nested Sidenav Accordion (Pages -> Account)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#pagesCollapseAccount" aria-expanded="false" aria-controls="pagesCollapseAccount">
+                  Account
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="account-profile.html">Profile</a>
+                    <a class="nav-link" href="account-billing.html">Billing</a>
+                    <a class="nav-link" href="account-security.html">Security</a>
+                    <a class="nav-link" href="account-notifications.html">Notifications</a>
+                  </nav>
+                </div>
+                <!-- Nested Sidenav Accordion (Pages -> Authentication)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                  Authentication
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="pagesCollapseAuth" data-bs-parent="#accordionSidenavPagesMenu">
+                  <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
+                    <!-- Nested Sidenav Accordion (Pages -> Authentication -> Basic)-->
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                      data-bs-target="#pagesCollapseAuthBasic" aria-expanded="false"
+                      aria-controls="pagesCollapseAuthBasic">
+                      Basic
+
+                      <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuthBasic" data-bs-parent="#accordionSidenavPagesAuth">
+                      <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="auth-login-basic.html">Login</a>
+                        <a class="nav-link" href="auth-register-basic.html">Register</a>
+                        <a class="nav-link" href="auth-password-basic.html">Forgot Password</a>
+                      </nav>
+                    </div>
+                    <!-- Nested Sidenav Accordion (Pages -> Authentication -> Social)-->
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                      data-bs-target="#pagesCollapseAuthSocial" aria-expanded="false"
+                      aria-controls="pagesCollapseAuthSocial">
+                      Social
+
+                      <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuthSocial" data-bs-parent="#accordionSidenavPagesAuth">
+                      <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="auth-login-social.html">Login</a>
+                        <a class="nav-link" href="auth-register-social.html">Register</a>
+                        <a class="nav-link" href="auth-password-social.html">Forgot Password</a>
+                      </nav>
+                    </div>
+                  </nav>
+                </div>
+                <!-- Nested Sidenav Accordion (Pages -> Error)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                  Error
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="pagesCollapseError" data-bs-parent="#accordionSidenavPagesMenu">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="error-400.html">400 Error</a>
+                    <a class="nav-link" href="error-401.html">401 Error</a>
+                    <a class="nav-link" href="error-403.html">403 Error</a>
+                    <a class="nav-link" href="error-404-1.html">404 Error 1</a>
+                    <a class="nav-link" href="error-404-2.html">404 Error 2</a>
+                    <a class="nav-link" href="error-500.html">500 Error</a>
+                    <a class="nav-link" href="error-503.html">503 Error</a>
+                    <a class="nav-link" href="error-504.html">504 Error</a>
+                  </nav>
+                </div>
+                <a class="nav-link" href="pricing.html">Pricing</a>
+                <a class="nav-link" href="invoice.html">Invoice</a>
+              </nav>
+            </div>
+
+            <a class="nav-link" href="#">
+              <div class="nav-link-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              Farmers
+            </a>
+
+            <a class="nav-link" href="#">
+              <div class="nav-link-icon">
+                <i class="fas fa-images"></i>
+              </div>
+              Captures
+            </a>
+
+            <!-- Sidenav Heading (UI Toolkit)-->
+            <div class="sidenav-menu-heading">UI Toolkit</div>
+            <!-- Sidenav Accordion (Layout)-->
+            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+              data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+              <div class="nav-link-icon">
+                <i data-feather="layout"></i>
+              </div>
+              Upload Data
+
+              <div class="sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </a>
+            <div class="collapse" id="collapseLayouts" data-bs-parent="#accordionSidenav">
+              <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
+                <!-- Nested Sidenav Accordion (Layout -> Navigation)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#collapseLayoutSidenavVariations" aria-expanded="false"
+                  aria-controls="collapseLayoutSidenavVariations">
+                  Navigation
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseLayoutSidenavVariations" data-bs-parent="#accordionSidenavLayout">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="layout-static.html">Static Sidenav</a>
+                    <a class="nav-link" href="layout-dark.html">Dark Sidenav</a>
+                    <a class="nav-link" href="layout-rtl.html">RTL Layout</a>
+                  </nav>
+                </div>
+                <!-- Nested Sidenav Accordion (Layout -> Container Options)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#collapseLayoutContainers" aria-expanded="false"
+                  aria-controls="collapseLayoutContainers">
+                  Container Options
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseLayoutContainers" data-bs-parent="#accordionSidenavLayout">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="layout-boxed.html">Boxed Layout</a>
+                    <a class="nav-link" href="layout-fluid.html">Fluid Layout</a>
+                  </nav>
+                </div>
+                <!-- Nested Sidenav Accordion (Layout -> Page Headers)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#collapseLayoutsPageHeaders" aria-expanded="false"
+                  aria-controls="collapseLayoutsPageHeaders">
+                  Page Headers
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseLayoutsPageHeaders" data-bs-parent="#accordionSidenavLayout">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="header-simplified.html">Simplified</a>
+                    <a class="nav-link" href="header-compact.html">Compact</a>
+                    <a class="nav-link" href="header-overlap.html">Content Overlap</a>
+                    <a class="nav-link" href="header-breadcrumbs.html">Breadcrumbs</a>
+                    <a class="nav-link" href="header-light.html">Light</a>
+                  </nav>
+                </div>
+                <!-- Nested Sidenav Accordion (Layout -> Starter Layouts)-->
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                  data-bs-target="#collapseLayoutsStarterTemplates" aria-expanded="false"
+                  aria-controls="collapseLayoutsStarterTemplates">
+                  Starter Layouts
+
+                  <div class="sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </a>
+                <div class="collapse" id="collapseLayoutsStarterTemplates" data-bs-parent="#accordionSidenavLayout">
+                  <nav class="sidenav-menu-nested nav">
+                    <a class="nav-link" href="starter-default.html">Default</a>
+                    <a class="nav-link" href="starter-minimal.html">Minimal</a>
+                  </nav>
+                </div>
+              </nav>
+            </div>
+            <!-- Sidenav Accordion (Components)-->
+            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+              data-bs-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
+              <div class="nav-link-icon">
+                <i data-feather="package"></i>
+              </div>
+              Edit / Delete Data
+
+              <div class="sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </a>
+            <div class="collapse" id="collapseComponents" data-bs-parent="#accordionSidenav">
+              <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="alerts.html">Alerts</a>
+                <a class="nav-link" href="avatars.html">Avatars</a>
+                <a class="nav-link" href="badges.html">Badges</a>
+                <a class="nav-link" href="buttons.html">Buttons</a>
+                <a class="nav-link" href="cards.html">
+                  Cards
+                  <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
+                </a>
+                <a class="nav-link" href="dropdowns.html">Dropdowns</a>
+                <a class="nav-link" href="forms.html">
+                  Forms
+                  <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>
+                </a>
+                <a class="nav-link" href="modals.html">Modals</a>
+                <a class="nav-link" href="navigation.html">Navigation</a>
+                <a class="nav-link" href="progress.html">Progress</a>
+                <a class="nav-link" href="step.html">Step</a>
+                <a class="nav-link" href="timeline.html">Timeline</a>
+                <a class="nav-link" href="toasts.html">Toasts</a>
+                <a class="nav-link" href="tooltips.html">Tooltips</a>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+        <!-- Sidenav Footer-->
+        <div class="sidenav-footer">
+          <div class="sidenav-footer-content">
+            <div class="sidenav-footer-subtitle">Logged in as:</div>
+            <div class="sidenav-footer-title">Valerie Luna</div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div id="layoutSidenav_content">
+      <main>
+          <div class="modal top fade " id="ModalDataPopulation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <h3 class="m-0 font-weight-bold text-primary modal-title" id="exampleModalLabel">Queen Pineapple Farmer</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+          
+                  <!-- DataTales Example -->
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered" width="100%" id="PlantedTable">
+                        <thead>
+                          <tr>
+                      
+                            <th>Municipality</th>
+                            <th>Planted</th>
+                            <th>Year Gathered</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+  
+                          {{#each pineapple_population}}
+
+                          <tr>
+          
+                            <td>{{muni_name}}</td>
+                            <td>{{formatCurrency population}} Suckers</td>
+                            <td>{{year_gathered}}</td>
+      
+                            <td class="text-center"> <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+                          </tr>
+                          {{/each}}
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+  
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal top fade " id="ModalPackageTech" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <h3 class="m-0 font-weight-bold text-primary modal-title" id="exampleModalLabel">Queen Pineapple Farmer</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal  " id="myModalSoil">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Queen Pineapple Soil Test Kit Data</h4>
+                
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_soil_test_kit' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal " id="myModalWeather">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h4 class="modal-title">Camarines Norte Weather</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_farmer_data' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' id="file_upload" class="button-39" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal " id="myModalFarmer">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <div class="modal-header bg-header-new">
+                  <h4 class="modal-title">Queen Pineapple Farmer</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_farmer_data' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' id="file_upload" class="button-39" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal " id="myModalPrice">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+           
+                <div class="modal-header bg-header-new">
+                  <h4 class="modal-title">Queen Pineapple Price in Camarines Norte</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+               
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_qp_price' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' id="file_upload" class="button-39" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal " id="myModalHarvest">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-header-new">
+                  <h4 class="modal-title">Production Report</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_qp_harvest' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' class="button-39" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal " id="myModalHarvest">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-header-new">
+                  <h4 class="modal-title">Production Report</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body ">
+                  <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                      <div class="row">
+                        <div class="col-xl-8 col-md-8">
+                          <form ref='uploadForm' id='uploadForm' action='/upload_qp_harvest' method='post'
+                            onsubmit='displayFunction()' encType="multipart/form-data"
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                            <input type="file" name="sampleFile" id="sampleFile" />
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                          <input type='submit' value='Upload!' class="button-39" />
+                        </div>
+                        </form>
+                      </div>
+
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <header class="page-header page-header-dark bg-green-darem pb-10">
+            <div class="container-xl px-4">
+              <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                  <div class="col-auto mt-4">
+                    <h1 class="page-header-title">
+                      QP DAREM
+                    </h1>
+                    <div class="page-header-subtitle">Data Analytics and Recommender System for Effective Monitoring and Managemen of Queen Pineapple</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </header>
+
+        <!-- Main page content-->
+        <div class="container-xl px-4 mt-n10">
+          <!-- Example Colored Cards for Dashboard Demo-->
+          <div class="row">
+
+            <div class="col-lg-6 col-xl-3 mb-4">
+              <div class="card bg-c-blue text-primary h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-3">
+                      
+                      <div class="text-primary small">Total of QP Farmers
+                        
+                      </div>
+                      <div class="text-lg fw-bold">
+                        
+                      {{#if farmer_count.[0].count_farmer}}
+                          {{farmer_count.[0].count_farmer}}
+                        {{else}}
+                          <span>------</span>
+                        {{/if}}
+
+                      </div>
+                    </div>
+                    
+                     <img width="35" height="35" class="f-right" src="https://img.icons8.com/external-ddara-fill-ddara/35/15798f/external-woman-asian-farmer-gardener-orchardist-character-husbandman-avatar-ddara-fill-ddara.png" alt="external-woman-asian-farmer-gardener-orchardist-character-husbandman-avatar-ddara-fill-ddara"/>
+                  </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between bg-c-blue small">
+                  <a class="text-primary stretched-link" href="#!">View Report</a>
+                  <div class="text-primary">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3 mb-4">
+              <div class="card bg-c-blue text-primary h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-3">
+                      <div class="text-primary small">QP Farm Area (Ha) {{date}}</div>
+                      <div class="text-lg fw-bold">
+                    
+                      {{#if area_count.[0].Area_count}}
+                          {{area_count.[0].Area_count}} ha
+                        {{else}}
+                          <span>------</span>
+                        {{/if}}
+
+                      </div>
+                    </div>
+                       <img width="35" height="35" class="f-right" src="https://img.icons8.com/ios-filled/35/15798f/world-map--v1.png" alt="world-map--v1"/>
+                  </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between bg-c-blue small">
+                  <a class="text-primary stretched-link" href="#!">View Report</a>
+                  <div class="text-primary">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3 mb-4">
+              <div class="card bg-c-blue text-primary h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-3">
+                      <div class="text-primary small">QP Production (MT)</div>
+                      <div class="text-lg fw-bold">   
+                      {{#if harvest_count.[0].production_count}}
+                          {{harvest_count.[0].production_count}} MT
+                        {{else}}
+                          <span>------</span>
+                        {{/if}}</div>
+                    </div>
+                   <img width="35" height="35" class="f-right" src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/35/15798f/external-truck-vehicles-icongeek26-glyph-icongeek26-1.png" alt="external-truck-vehicles-icongeek26-glyph-icongeek26-1"/>
+                  </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a class="text-primary stretched-link" href="#!">View Tasks</a>
+                  <div class="text-primary">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3 mb-4">
+              <div class="card bg-c-blue text-primary h-100">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="me-3">
+                      <div class="text-primary small">QP Farm Gate Price(php) 
+                      </div>
+                      <div class="text-lg fw-bold">  {{#if qp_price.[0].price}}
+                          {{qp_price.[0].price}} php
+                        {{else}}
+                          <span>------</span>
+                        {{/if}}</div>
+                    </div>
+                    <img width="35" height="35" class="f-right" src="https://img.icons8.com/glyph-neue/35/15798f/price-tag.png" alt="price-tag"/>
+                  </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between small">
+                  <a class="text-primary stretched-link" href="#!">View Requests</a>
+                  <div class="text-primary">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+           <div class="row">
+
+                  <div class="col-xl-3 col-lg-3 "><h4>Camarines Norte Dashboard</h4></div>
+                  <div class="col-xl-3 col-lg-3 "></div>
+                  <div class="col-xl-3 col-lg-3 "></div>
+                  <div class="col-xl-3 col-lg-3 col-md-12">
+                    <select class="form-control form-select f-right form-select-sm   dashboard-selection" id="mySelection">
+                        <option href="#qp_production">Queen Pineapple Production</option>
+                        <option href="#farmer_demo">Farmer Demographics</option>
+                        <option href="#pest_diseases">Pest and Diseases</option>
+                        <option href="#weather">Weather Data Statistics</option>
+                    </select>
+                  </div>
+          </div>
+          
+          <!-- Example Charts for Dashboard Demo-->
+            <div class="tab-content">
+
+                <div id="qp_production" class="tab-pane active"><br>
+                    
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-12 col-md-12"  >
+                            <div class="card shadow mb-4" >
+                                <div class="card-body" style="height: 64vh;"> 
+                                  <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                    <b class="text-primary f-left margin-left-10">Queen Pineapple Production (Planted) </b> 
+                                       <form action="/action_page.php">
+                                      <select id="muni_select"  class="f-right form-select form-select-sm selectionPopulation">
+                                        {{#each cam_norte_municipality}}
+                                          <option value={{muni_select}}>{{muni_select}}</option>
+                                        {{/each}}
+                                      </select>
+                                    </form>
+                                       <div class="card-body" style="height: 60vh;">
+                                          
+                                          <canvas id="chart-pineapple-population" width="100%" height="30"></canvas>
+                                             {{!-- <button class="btn btn-primary f-right" type="button" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#ModalDataPopulation">
+                                              View Raw Data
+                                              </button> --}}
+                                        </div>
+                                 </div>
+                              </div>
+                        </div>  
+                              
+                        <div class="col-xl-4 col-lg-12 col-md-12">
+                                <div class="row">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body" style="height: 33vh;">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{date}} (per piece)</b> 
+                                              
+                                                <div class="card-body" style="height: 32vh;">
+                                                    <canvas id ="pie_graph"></canvas>
+                                                    
+                                                </div>
+                                          </div>
+                                      </div>
+
+                          <div class="card shadow mb-4">
+                                <div class="card-body" style="height: 28vh;" >       
+                                          <div class="card-body" style="height: 25vh;">
+                                            <h1 class="text-primary text-center">Queen Pineapple Production in Camarines Norte</h1>
+                                                    <p class="text-gray-700 mb-0">Browse our fully designed UI toolkit! Browse our prebuilt app pages, components, and utilites, and be sure to look at our full documentation!</p>
+                                              
+                                          
+                                            <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid"  style="max-width: 26rem"></div>
+                                       
+                                          </div>
+                                </div>
+                            </div>
+                        
+                                </div>
+
+                        </div>
+                    
+                    </div>
+
+                    <div class="card mb-4">
+                               <div class="card-body">
+                                <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                    <b class="text-primary f-left margin-left-10">Queen Pineapple Production Changes/Trends</b>
+                                    <b class="text-primary f-right margin-left-10" id="munici"></b>
+                              <br>
+                                <div class="card-body">
+                                  
+                                        <table id="datatableTrends">
+                                                      
+                                                           <thead>
+                                                            <tr>
+                                                              <th>Municipality</th>
+                                                              <th>Changes</th>
+                                                              <th>{{population_percent.[0].pop_year2}}</th>
+                                                              <th>{{population_percent.[0].pop_year1}}</th>
+                                                              <th>Difference</th>
+                                                              <th>Status</th>
+                                                              <th>Action</th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tfoot>
+                                                            <tr>
+                                                              <th>Municipality</th>
+                                                              <th>Changes</th>
+                                                              <th>{{population_percent.[0].pop_year2}}</th>
+                                                              <th>{{population_percent.[0].pop_year1}}</th>
+                                                              <th>Difference</th>
+                                                              <th>Status</th>
+                                                              <th>Action</th>
+                                                            </tr>
+                                                          </tfoot>  
+                                                        
+                                                            <tbody>
+                                                                {{#each population_percent}}
+                                                                <tr>
+                                                                  <td>{{muni_name}}</td>
+                                                                  {{#redorgreen change_pop}}
+                                                                  <td>  <span class="text-danger">{{change_pop}} %<span class="f-right"> ▼ </span> </span></td>
+                                                                  {{else}}   
+                                                                      <td><span class="text-success">{{change_pop}} % <span class="f-right"> ▲ </span></span></td>
+                                                                  {{/redorgreen}}
+                                                                  
+                                                                  {{#redorgreen1 pop1 pop2}}
+                                                                    <td>{{formatCurrency pop2}}</td>
+                                                                    <td>{{formatCurrency pop1}}</td>
+                                                                    <td><h9 class="text-danger">{{formatCurrency diff_pop}}</h9></td>
+                                                                      <td>
+                                                                        <center>
+                                                                          <div class="badge bg-danger text-white rounded-pill">Decreased</div>
+                                                                        </center>
+                                                                        
+                                                                      </td>
+                                                                  {{else}}
+                                                                    <td>{{formatCurrency pop2}}</td>
+                                                                      <td>{{formatCurrency pop1}}</td>
+                                                                      <td><h9 class="text-success">{{formatCurrency diff_pop}}</h9></td>
+                                                                      <td>
+                                                                        <center>
+                                                                        <div class="badge bg-success text-white rounded-pill">Increased</div>
+                                                                        </center>
+                                                                      </td>
+                                                                  {{/redorgreen1}}
+                                                                 
+                                                                  <td><center>
+                                                                    <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                    </button>
+                                                                    <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                      <i class="fa-regular fa-trash-can"></i>
+                                                                    </button>
+                                                                    </center>
+                                                                  </td>
+                                                                </tr>
+                                                                {{/each}}
+                                                              </tbody>
+                                        </table>
+                                     </div>
+                                                      </div>
+                    </div>    
+
+                    <div class="row">
+
+                        <div class="col-xl-5 col-lg-12 col-md-12">
+                          <div class="card shadow mb-4">
+                            <div class="card-body" style="height: 48vh;">
+                                <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                 <form action="/action_page.php">
+                                  <select id="year" class="f-right form-select form-select-sm selectionYear">
+                                      <option value="All">All</option>
+                                      <option value="2020">2020</option>
+                                      <option value="2021">2021</option>
+                                      <option value="2022">2022</option>
+                                      <option value="2023">2023</option>
+                                  </select>
+                                </form>
+                                <b class="text-primary text-left margin-left-10">Harvest of Queen Pineapple per Metric Ton</b> 
+                               
+                                <div class="card-body" style="height: 42vh;">
+                                  <canvas id ="chartjs-js-harvest"  ></canvas>
+                                </div>
+                              </div>
+                            </div>
+                          </div>  
+
+                              <div class="col-xl-7 col-lg-12 col-md-12"  >
+                          <div class="card shadow mb-4">
+                                <div class="card-body" style="height: 48vh;" >       
+                                     <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Expected Harvest of Queen Pineapple {{date}}</b> 
+                                          <div class="card-body" style="height: 42vh;"> 
+                                            <canvas id="line_expected_harvest"></canvas>  
+                                          </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    
+
+                        <div class="col-xl-4 col-lg-12 col-md-12"  >
+                          <div class="card shadow mb-4">
+                                <div class="card-body"style="height: 40vh;" >       
+                                     <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                     
+                                          <b class="text-primary f-left margin-left-10">Area of Queen Pineapple Farms {{date}}</b>
+                                          <div class="card-body" style="height: 35vh;"> 
+                                             <canvas id ="land_area_pie"></canvas>
+                                          </div>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="col-xl-4 col-lg-12 col-md-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-body"style="height: 40vh;" >   
+                                      <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                         <b class="text-primary f-left margin-left-10">Farm Gate Price Movement</b> 
+                                       <div class="card-body" style="height: 35vh;"> 
+                                             <canvas id ="line_qp_price"></canvas>
+                                          </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="col-xl-5 col-lg-12 col-md-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="height: 62vh">
+                                      <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Top Producer of Queen Pineapple {{date}}</b> <br>
+                                          <div class="card-body table-responsive" style="height: 55vh">
+                                              <table class="table table-hover table-fixed" id="RankingTable">
+                                                            <thead>
+                                                                <tr>
+                                                                  <th>Municipality</th>
+                                                                  <th>Expected Harvest</th>
+                                                                  <th>Ranking</th>
+                                                                </tr>
+                                                              </thead>
+                                                                <tbody>
+                                                                    {{#each expected_harvest_table}}
+                                                                    <tr>
+                                                                      <td>{{muni_name}}</td>
+                                                                        <td> <h6 class="text-center">{{formatCurrency expected_harvest}}</h6></td>
+                                                                        <td><h6 class="text-center">{{ranking}}</h6> </td>
+                                                                    
+                                                                    </tr>
+                                                                    {{/each}}
+                                                                  </tbody>
+                                              </table>
+                                          </div>
+                                    </div>
+                                </div>
+                        </div>    
+                        
+                        <div class="col-xl-7 col-lg-12 col-md-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-body" style="height: 62vh">
+                                      <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary text-left margin-left-10">Land Area of Queen Pineapple Farms {{date}}</b>
+                                          <div class="card-body table-responsive" style="height: 55vh">
+                                              <table class="table table-hover table-fixed" id="LandAreaTable">
+                                                            <thead>
+                                                                <tr>
+                                                                  <th>No.</th> 
+                                                                  <th>Municipality</th>
+                                                                  <th>Farm Area</th>
+                                                                  <th>Action</th>
+                                                                </tr>
+                                                              </thead>
+                                                                <tbody>
+                                                                    {{#each qp_area}}
+                                                                    <tr>
+                                                                       <td><h6>{{area_rank}}</h6> </td>
+                                                                        <td>{{muni_name}}</td>
+                                                                        <td> <h6 class="text-left">{{formatCurrency sum_area}} &nbsp;&nbsp;&nbsp;&nbsp; Hectares </h6></td>
+                                                                        <td class="text-center"> <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                                    </tr>
+                                                                    {{/each}}
+                                                                  </tbody>
+                                              </table>
+                                          </div>
+                                    </div>
+                                </div>
+                        </div>                 
+                          
+                    </div>  
+
+
+                    <div class="row">
+
+                          <div class="col-xl-8 col-lg-8 col-md-12">
+                              <div class="card shadow mb-4">
+                                  <div class="card-body">
+                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                  <b class="text-primary f-left margin-left-10">Package Technology for Queen Pineapple</b> <br>
+                                     <div class="card-body">
+
+
+                                      <table class="table table-hover table-fixed"  id="PackageTable">
+                                            <thead>
+                                                <tr>
+                                                  <th>No.</th>
+                                                  <th>Title</th>
+                                                  <th>Category</th>
+                                                  <th>Author</th>
+                                                  <th>Year Created</th>
+                                                  <th>Action</th>
+                                                </tr>
+                                              </thead>
+                                                <tbody>
+                                                    {{#each farmersqp_}}
+                                                    <tr>
+                                                      <td>{{f_id}}</td>
+                                                      <td>{{fullname}}</td>
+                                                      <td>{{barangay}}</td>
+                                                      <td>{{municipality}}</td>
+                                                      <td>{{gender}}</td>
+                                                      <td class="text-center"> <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                    </tr>
+                                                    {{/each}}
+                                                  </tbody>
+                                      </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                          </div>
+
+                          <div class="col-xl-12 col-lg-4 col-md-12">
+                              <div class="card shadow mb-4">
+                                  <div class="card-body">
+                                     <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                  <b class="text-primary f-left margin-left-10">Actual Harvest of {{date}}</b> <br>
+                                      <div class="card-body">
+                                       <div class="chartdiv" style="height: 70vh"></div>
+                                      </div>
+                                  </div>
+                                </div>
+                          </div>
+
+                    </div>
+
+                </div>
+
+                <div id="farmer_demo" class="tab-pane fade"><br>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-16 col-md-12"  >
+                            <div class="card shadow mb-4" >
+                                <div class="card-body"> 
+                                  <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                    <b class="text-primary f-left margin-left-10">Queen Pineapple Farmers Camarines Norte </b> 
+                                       <div class="card-body">
+                                          <canvas id="line-farmer-peryear"></canvas>
+
+                                        </div>
+                                 </div>
+                              </div>
+                        </div>  
+
+                        <div class="col-xl-6 col-lg-6 col-md-12">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{2023}} (per piece)</b> 
+                                              
+                                                <div class="card-body f-top">
+                                                    <canvas id ="bar_farmer_permuni"></canvas>
+                                                    
+                                                </div>
+                                          </div>
+                                      </div>
+                        </div>
+
+                       
+                    
+                    </div>
+
+                    <div class="row">
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">Total Farmers <h6 class="f-right">{{date}}</h6></h6><br>                            
+                                          <div class="card-body">
+                                            <h2 class="text-center text-black text-bold">
+                                              {{#if farmer_count.[0].count_farmer}}
+                                              {{formatCurrency farmer_count.[0].count_farmer}}
+                                              {{else}}
+                                              <span>------</span>
+                                              {{/if}}
+                                              <p class="h7 text-center">Total QP Farmers </p>
+                                              </h2>
+                                        </div>
+                                        </div>  
+                                    </div>    
+                              </div>
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-body">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">Active Farmers <h6 class="f-right">{{date}}</h6></h6><br> 
+                                        <div class="card-body">
+                                            
+                                        </div>
+                                      </div>   
+                                  </div>    
+                              </div>
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow mb-4">
+                                  <div class="card-body">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">Tenant Farmers</h6>
+                                          <br>                            
+                                          <div class="card-body">
+                                            <h2 class="text-center text-black text-bold">
+                                              {{#if farmer_count.[0].count_farmer}}
+                                              {{formatCurrency farmer_count.[0].count_farmer}}
+                                              {{else}}
+                                              <span>------</span>
+                                              {{/if}}
+                                                <p class="h7 text-center">Tenant Farmers </p>
+                                              </h2>
+                                              
+                                        </div>
+                                          
+                                      </div>     
+                                  </div>    
+                              </div>
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">Farmer-Owner<h6 class="f-right">{{date}}</h6></h6><br> 
+                                        <div class="card-body">
+                                      
+                                        </div>
+                                      </div>
+                                  </div>    
+                              </div>
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">Cultivators <h6 class="f-right">{{date}}</h6></h6><br> 
+                                        <div class="card-body">
+                                          
+                                        </div>
+                                      </div> 
+                                </div>    
+                              </div>
+
+                              <div class="col-xl-2 col-lg-4 col-md-6">
+                                  <div class="card shadow mb-4">
+                                      <div class="card-body">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <h6 class="font-weight-bold f-left text-primary margin-left-10">RBSBA Registered <h6 class="f-right">{{date}}</h6></h6><br> 
+                                        <div class="card-body">
+                                
+                                        </div>
+                                      </div>      
+                                  </div>    
+                              </div>
+
+                    </div>  
+
+                    <div class="row">
+                      <div class="col-xl-3 col-lg-6 col-md-12">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{2023}} (per piece)</b> 
+                                              
+                                                <div class="card-body f-top">
+                                                    <canvas id="chartjs-bar-age"></canvas>
+                                                    
+                                                </div>
+                                          </div>
+                                      </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{2023}} (per piece)</b> 
+                                              
+                                                <div class="card-body f-top">
+                                                    <canvas id="chart-line-doughnut-gender" ></canvas>                                               
+                                                </div>
+                                          </div>
+                                      </div>
+                        
+                        </div>
+                        
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{2023}} (per piece)</b> 
+                                              
+                                                <div class="card-body f-top">
+                                                    <canvas id ="bar_farmer_permuni"></canvas>
+                                                    
+                                                </div>
+                                          </div>
+                                      </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                                 <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{2023}} (per piece)</b> 
+                                              
+                                                <div class="card-body f-top">
+                                                    <canvas id ="bar_farmer_permuni"></canvas>
+                                                    
+                                                </div>
+                                          </div>
+                                      </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xl-9 col-lg-9"> 
+                            <div class="card shadow mb-4"> 
+                                <div class="card-body" >
+                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                    <b class="text-primary f-left margin-left-10">Queen Pineapple Farmers of Camarines Norte</b> 
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                          <table class="table table-bordered" width="100%" id="FarmerTable">
+                                            <thead>
+                                                <tr>
+                                                  <th>No.</th>
+                                                  <th>Name</th>
+                                                  <th>Barangay</th>
+                                                  <th>Municipality</th>
+                                                  <th>Gender</th>
+                                                  <th>Action</th>
+                                                </tr>
+                                              </thead>
+                                                <tbody>
+                                                    {{#each farmersqp_}}
+                                                    <tr>
+                                                      <td>{{f_id}}</td>
+                                                      <td>{{fullname}}</td>
+                                                      <td>{{barangay}}</td>
+                                                      <td>{{municipality}}</td>
+                                                      <td>{{gender}}</td>
+                                                      <td class="text-center"> <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></td>
+                                                    </tr>
+                                                    {{/each}}
+                                                  </tbody>
+                                            </table>
+                                    </div>
+                                    </div>
+                            </div>
+                      </div>
+                        </div>
+                        
+                        <div class="col-xl-3 col-lg-3"> 
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                  <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers (per Municipality)</h6> 
+                                <div class="card-body" id="progressbarid"></div>
+                              </div>
+                        </div>
+                        </div>
+                      
+                    </div>
+
+
+
+                    <div class="row">
+                          <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="">
+                                          <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        
+                                          <div id="map" style="height: 60vh" class="card-body img-fluid"></div>
+                                    </div>
+                                </div>
+                          </div>
+                    </div>
+                  
+                    <div class="row">
+                            <div class="col-xl-4 col-lg-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                          
+                                      <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers (per Municipality)</h6>
+                                        <div class="card-body">
+                                               
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                          
+                                      <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers (per Municipality)</h6>
+                                        <div class="card-body">
+                                          
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                          
+                                      <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers (per Municipality)</h6>
+                                        <div class="card-body">
+                                            <canvas id="chart-line-gender-bar"></canvas>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                        
+                    <div class="row">
+                          <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">QP Farmers (By Age Range)</h6>
+                              </div>
+                              <div class="card-body">
+                              
+                              </div>
+                            </div>
+                          </div>
+                            <div class="col-xl-6 col-lg-6">
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">QP Farmers (By Age Range)</h6>
+                              </div>
+                              <div class="card-body">
+                          
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+                </div>
+
+                <div id="pest_diseases" class="tab-pane fade"><br>
+                
+                </div>
+
+                <div id="weather" class="tab-pane fade"><br>
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12">
+                        <div class="card shadow mb-4">
+                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Weather Data in Camarines Norte (10 years)</h6>
+                          </div>
+                          <div class="card-body">
+                            <canvas id="chartjs-line-weather"></canvas>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Example DataTable for Dashboard Demo-->
+            {{!-- <div class="card mb-4">
+              <div class="card-header">Personnel Management</div>
+              <div class="card-body">
+                <table id="datatablesSimple">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>Olivia Liang</td>
+                      <td>Support Engineer</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2011/02/03</td>
+                      <td>$234,500</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Bruno Nash</td>
+                      <td>Software Engineer</td>
+                      <td>London</td>
+                      <td>38</td>
+                      <td>2011/05/03</td>
+                      <td>$163,500</td>
+                      <td>
+                        <div class="badge bg-info rounded-pill">Contract</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Sakura Yamamoto</td>
+                      <td>Support Engineer</td>
+                      <td>Tokyo</td>
+                      <td>37</td>
+                      <td>2009/08/19</td>
+                      <td>$139,575</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Thor Walton</td>
+                      <td>Developer</td>
+                      <td>New York</td>
+                      <td>61</td>
+                      <td>2013/08/11</td>
+                      <td>$98,540</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Finn Camacho</td>
+                      <td>Support Engineer</td>
+                      <td>San Francisco</td>
+                      <td>47</td>
+                      <td>2009/07/07</td>
+                      <td>$87,500</td>
+                      <td>
+                        <div class="badge bg-info rounded-pill">Contract</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Serge Baldwin</td>
+                      <td>Data Coordinator</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2012/04/09</td>
+                      <td>$138,575</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Zenaida Frank</td>
+                      <td>Software Engineer</td>
+                      <td>New York</td>
+                      <td>63</td>
+                      <td>2010/01/04</td>
+                      <td>$125,250</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Zorita Serrano</td>
+                      <td>Software Engineer</td>
+                      <td>San Francisco</td>
+                      <td>56</td>
+                      <td>2012/06/01</td>
+                      <td>$115,000</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jennifer Acosta</td>
+                      <td>Junior Javascript Developer</td>
+                      <td>Edinburgh</td>
+                      <td>43</td>
+                      <td>2013/02/01</td>
+                      <td>$75,650</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cara Stevens</td>
+                      <td>Sales Assistant</td>
+                      <td>New York</td>
+                      <td>46</td>
+                      <td>2011/12/06</td>
+                      <td>$145,600</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Hermione Butler</td>
+                      <td>Regional Director</td>
+                      <td>London</td>
+                      <td>47</td>
+                      <td>2011/03/21</td>
+                      <td>$356,250</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Lael Greer</td>
+                      <td>Systems Administrator</td>
+                      <td>London</td>
+                      <td>21</td>
+                      <td>2009/02/27</td>
+                      <td>$103,500</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jonas Alexander</td>
+                      <td>Developer</td>
+                      <td>San Francisco</td>
+                      <td>30</td>
+                      <td>2010/07/14</td>
+                      <td>$86,500</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Shad Decker</td>
+                      <td>Regional Director</td>
+                      <td>Edinburgh</td>
+                      <td>51</td>
+                      <td>2008/11/13</td>
+                      <td>$183,000</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Michael Bruce</td>
+                      <td>Javascript Developer</td>
+                      <td>Singapore</td>
+                      <td>29</td>
+                      <td>2011/06/27</td>
+                      <td>$183,000</td>
+                      <td>
+                        <div class="badge bg-primary text-white rounded-pill">Full-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Donna Snider</td>
+                      <td>Customer Support</td>
+                      <td>New York</td>
+                      <td>27</td>
+                      <td>2011/01/25</td>
+                      <td>$112,000</td>
+                      <td>
+                        <div class="badge bg-secondary text-white rounded-pill">Part-time</div>
+                      </td>
+                      <td>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                          <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> --}}
+
+        </div>
+      </main>
+      <footer class="footer-admin mt-auto footer-light">
+        <div class="container-xl px-4">
+          <div class="row">
+            <div class="col-md-6 small">Copyright © Your Website 2021</div>
+            <div class="col-md-6 text-md-end small">
+              <a href="#!">Privacy Policy</a>
+              ·
+              <a href="#!">Terms &amp;Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+  <script src="js/experiment.js"></script>
+  <script src="js/sb-admin-2.js"></script>
+  <script src="js/donut_graph.js"></script>
+  <script src="js/gender_graph.js"></script>
+  <script src="js/treemap.js"></script>
+  <script src="js/progressbarqpcount.js"></script>
+  <script src="js/pie_graph.js"></script>
+  <script src="js/area_pieChart.js"></script>
+  <script src="js/qp_farmer_age.js"></script>
+  <script src="js/pineapple_population.js"></script>
+  <script src="js/harvest_data.js"></script>
+  <script src="js/weather_linegraph.js"></script>
+  <script src="js/weather_data.js"></script>
+  <script src="js/expected_harvest.js"></script>
+  <script src="js/weather-api.js"></script>
+
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <script type="text/javascript" src="js/cn_data_2.js"></script>
+  <script type="text/javascript">
+    var map = L.map('map').setView([14.100072, 122.6615868], 10);
+
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    }).addTo(map);
+
+    // get color depending on population density value
+    function getColor(d) {
+      return d == "Sta Elena" ? '#5584AC' :
+        d == "Daet" ? '#333C83' :
+          d == "Labo" ? '#F24A72' :
+            d == "Capalonga" ? '#95D1CC' :
+              d == "Basud" ? '#EAEA7F' :
+                d == "Jose Panganiban" ? '#A97155' :
+                  d == "Mercedes" ? '#FFA8A8' :
+                    d == "San Lorenzo" ? '#F7F5F2' :
+                      d == "Paracale" ? '#712B75' :
+                        d == "San Vicente" ? '#D49B54' :
+                          d == "Talisay" ? '#712B75' :
+                            d == "Vinzonz" ? '#FED976' : '#FFEDA0';
+    }
+
+    function style(feature) {
+      return {
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+        fillColor: getColor(feature.properties.ADM3_EN)
+      };
+    }
+  map.invalidateSize(); 
+    // /* global statesData */
+    // var geojson = L.geoJson(cn_data, {
+    //   style: style,
+    // }).addTo(map);
+
+    // function highlightFeature(e) {
+    //   var layer = e.target;
+
+    //   layer.setStyle({
+    //     weight: 5,
+    //     color: '#666',
+    //     dashArray: '',
+    //     fillOpacity: 0.7
+    //   });
+
+    //   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    //     layer.bringToFront();
+    //   }
+
+    // }
+
+    // function resetHighlight(e) {
+    //     geojson.resetStyle(e.target);
+    // }
+
+    // control that shows state info on hover
+
+    var info = L.control();
+
+    info.onAdd = function (map) {
+      this._div = L.DomUtil.create('div', 'info');
+      this.update();
+      return this._div;
+    };
+
+    info.update = function (props) {
+      this._div.innerHTML = '<h4></h4>' + (props ?
+        '<b>' + 'Pangalan ko'+ '</b><br />' + 'Hoooy'+ ' people / mi<sup>2</sup>' : 'Hover over a state');
+    };
+
+    info.addTo(map);
+
+    function highlightFeature(e) {
+      var layer = e.target;
+
+      layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+      }
+
+      info.update(layer.feature.properties);
+    }
+
+    var geojson;
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    /* global statesData */
+    geojson = L.geoJson(geodata, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+
+    var legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function (map) {
+
+      var div = L.DomUtil.create('div', 'info legend');
+      var grades = [0, 10, 20, 50, 100, 200, 500, 1000];
+      var labels = [];
+      var from, to;
+
+      for (var i = 0; i < grades.length; i++) {
+        from = grades[i];
+        to = grades[i + 1];
+
+        labels.push(
+          '<i style="background:' + getColor(from + 1) + '"></i> ' +
+          from + (to ? '&ndash;' + to : '+'));
+      }
+
+      div.innerHTML = labels.join('<br>');
+      return div;
+    };
+
+    legend.addTo(map);
+
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#FarmerTable').dataTable({"order": [],});    
+       $('#PackageTable').dataTable({"order": [],} );
+       $('#PlantedTable').dataTable({   "order": [], "searching": true,"lengthChange":true });  
+       $('#HarvestTable').dataTable({"order": [],} );
+        $('#ChangesTable').dataTable({"order": [],"pageLength": 6, "searching": false,"lengthChange":false});
+       $('#ExpectedHarvestTable').dataTable({ "order": [], "searching": true,"lengthChange":false,"pageLength": 8,    "info": false,  });
+        $('#LandAreaTable').dataTable({ "order": [], "searching": true,"lengthChange":true, "pageLength": 6, "info": true,  });
+        $('#RankingTable').dataTable({ "order": [], "searching": true,"lengthChange":false,"pageLength": 8,    "info": false,  });
+    });
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+    crossorigin="anonymous"></script>
+  <script src="js/datatables/datatables-simple-demo.js"></script>
+
+
+</body>
+
+</html>

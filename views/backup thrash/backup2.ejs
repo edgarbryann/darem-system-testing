@@ -1,0 +1,33 @@
+<div class="content">
+    <div class="container mt-7">
+        <% if (messages.success) { %>
+        <p class="alert alert-success mt-7"><%- messages.success %></p>
+        <% } %>
+        <br />
+        <table class="table table-striped" id="myTable">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Barangay</th>
+              <th>Municipality</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+            <tr>
+              <td scope="row"><%= data[i].logs%></td>
+              <td><%= data[i].fullname%></td>
+              <td><%= data[i].raw_barangay%></td>
+              <td><%= data[i].raw_municipality%></td>
+              <td><%= data[i].gender%></td>
+            <% } }else{ %>
+            <tr>
+              <td>No data ever existed.</td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+  </div>

@@ -1,0 +1,2577 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <title> PROJECT DAREM</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="johnlaurencenecio" content="">
+    <!-- Bootstrap Script-->  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"> </script> 
+    <script src= "https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"> </script> 
+    
+    <link href="/assets/img/portfolio/dashboard-logo.png" rel="icon">
+    <link href="/assets/img/portfolio/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+    
+    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <linkhref="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"  rel="stylesheet">
+    <!-- Custom styles for this template-->
+
+  <link href="/css/styles.css" rel="stylesheet" />
+
+  <link href="/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+  
+    <!-- Styling Script -->
+    {{!-- <style type="text/css">
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .scrollingTable {
+        width: 30em;
+        overflow-y: auto;
+      }
+
+      #logo {
+        width: 220px;
+        height: 150px;
+
+      }
+
+      p {
+        text-align: center;
+      }
+    </style> --}}
+
+
+    <script>
+      function displayFunction() {
+        alert("Upload Success");
+      }
+    </script>
+
+  </head>
+
+  <body class="nav-fixed">
+    <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
+      id="sidenavAccordion">
+      <!-- Sidenav Toggle Button-->
+      <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle">
+        <i data-feather="menu"></i>
+      </button>
+
+      <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="/darem"><img class="img-fluid" style="height: 120px; widght: 120px  " src="assets/img/portfolio/daremlogo.png" /></a>
+
+
+        <ul class="nav nav-pills align-items-center ms-auto" id="pills-tab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="soil-test-kit" data-toggle="pill" href="#soil_test" role="tab" aria-controls="pills-contact" aria-selected="true">Main Dashboard</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="production-tab" data-toggle="pill" href="#qp_production" role="tab" aria-controls="pills-company" aria-selected="false">Production</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="harvest-tab" data-toggle="pill" href="#qp_yield" role="tab" aria-controls="pills-product" aria-selected="false">Yield / Harvest</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="rbsba-tab" data-toggle="pill" href="#rbsba_" role="tab" aria-controls="pills-news" aria-selected="false">RSBSA</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="farmer-data" data-toggle="pill" href="#farmer_demo" role="tab" aria-controls="pills-contact" aria-selected="false">Farmer Data</a>
+                      </li>
+
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#qp_technologies" role="tab" aria-controls="pills-contact" aria-selected="false">Package Technologies</a>
+                      </li>
+                        <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pest_diseases" role="tab" aria-controls="pills-contact" aria-selected="false">Pest/Diseases</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#weather_data" role="tab" aria-controls="pills-contact" aria-selected="false">Weather</a>
+                      </li>
+        </ul>
+
+      <!-- Navbar Items-->
+      <ul class="navbar-nav align-items-center ms-auto">
+      
+        <!-- User Dropdown-->
+        <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+     
+          <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
+            href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="img-fluid" src="assets/img/portfolio/profile-1.png" />
+          </a>
+          <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+            aria-labelledby="navbarDropdownUserImage">
+            <h6 class="dropdown-header d-flex align-items-center">
+              <img class="dropdown-user-img"  />
+              <div class="dropdown-user-details">
+                <div class="dropdown-user-details-name">Valerie Luna</div>
+                <div class="dropdown-user-details-email">
+                  <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                    data-cfemail="f88e948d9699b8999794d69b9795">[email &#160;protected]</a>
+                </div>
+              </div>
+            </h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#!">
+              <div class="dropdown-item-icon">
+                <i data-feather="settings"></i>
+              </div>
+              Account
+
+            </a>
+            <a class="dropdown-item" href="#!">
+              <div class="dropdown-item-icon" >
+                <i data-feather="log-out"></i>
+              </div>
+              
+              Logout
+
+            </a>
+          </div>
+        </li>
+        
+
+      </ul>
+
+    </nav>
+
+    <div id="layoutSidenav">
+      
+      <div id="layoutSidenav_nav">
+        <nav class="sidenav shadow-right sidenav-light">
+          <div class="sidenav-menu">
+            <div class="nav accordion" id="accordionSidenav">
+              <!-- Sidenav Menu Heading (Account)-->
+              <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+              <div class="sidenav-menu-heading d-sm-none">Account</div>
+              <!-- Sidenav Link (Alerts)-->
+              <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+              <a class="nav-link d-sm-none" href="#!">
+                <div class="nav-link-icon">
+                  <i data-feather="bell"></i>
+                </div>
+                Alerts
+                <span class="badge bg-warning-soft text-warning ms-auto">4 New!</span>
+              </a>
+              <!-- Sidenav Link (Messages)-->
+              <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+              <a class="nav-link d-sm-none" href="#!">
+                <div class="nav-link-icon">
+                  <i data-feather="mail"></i>
+                </div>
+                Messages
+                <span class="badge bg-success-soft text-success ms-auto">2 New!</span>
+              </a>
+              <!-- Sidenav Menu Heading (Core)-->
+              <div class="sidenav-menu-heading">Main Dashboard</div>
+              <!-- Sidenav Accordion (Dashboard)-->
+              <a class="nav-link active" href="#">
+                <div class="nav-link-icon">
+                  <i data-feather="grid"></i>
+                </div>
+                Camarines Norte
+              </a>
+
+              <!-- Sidenav Heading (Custom)-->
+              <div class="sidenav-menu-heading">First District</div>
+              <!-- Sidenav Accordion (Pages)-->
+
+                <a class="nav-link" href="/darem/Capalonga">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Capalonga</a>
+                <a class="nav-link" href="/darem/Labo">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Labo</a>
+                <a class="nav-link" href="/darem/Jose Panganiban">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Jose Panganiban</a>
+                <a class="nav-link" href="/darem/Paracale">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Paracale</a>
+                <a class="nav-link" href="/darem/Labo">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Labo</a>
+                <a class="nav-link" href="/darem/Sta Elena">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Sta Elena</a>
+                <a class="nav-link" href="/darem/Vinzons">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Vinzons</a>
+
+             <!-- Sidenav Heading (Custom)-->
+              <div class="sidenav-menu-heading">Second District</div>
+              <!-- Sidenav Accordion (Pages)-->
+
+                <a class="nav-link" href="/darem/Basud">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Basud
+                </a>
+                  <a class="nav-link" href="/darem/Daet">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Daet
+                </a>
+                  <a class="nav-link" href="/darem/Mercedes">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Mercedes
+                </a>
+                <a class="nav-link" href="/darem/San Lorenzo">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  San Lorenzo
+                </a>
+                <a class="nav-link" href="/darem/San Vicente">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  San Vicente
+                </a>
+                <a class="nav-link" href="/darem/Talisay">
+                  <div class="nav-link-icon">
+                  <i data-feather="grid"></i></div>
+                  Talisay
+                </a>
+             
+
+              <!-- Sidenav Heading (Custom)-->
+              <div class="sidenav-menu-heading">UPLOAD DATA</div>
+              <!-- Sidenav Accordion (Pages)-->
+
+            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                data-bs-target="#ModalUpload" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="nav-link-icon">
+                  <i data-feather="layout"></i>
+                </div>
+                Upload Data
+            </a>
+           
+          </div>
+
+        </nav>
+        
+      </div>
+
+        <div id="layoutSidenav_content">
+          <main>
+              <div class="modal top fade " id="ModalUpload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">  
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h3 class="m-0 text-primary modal-title" id="exampleModalLabel">Upload Data</h3>
+                      
+                    </div>
+                    <div class="modal-body">
+                      <table class="table table-hover table-fixed"  id="dataTableUpload">
+                                                <thead>
+                                                    <tr>   
+                                                      <th>No.</th>
+                                                      <th>Description</th>
+                                                      <th>File</th>
+                                                      <th>Action</th>
+                                                    
+                                                    </tr>
+                                                  </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                          <td>1</td>
+                                                          <td>Soild Test Kit</td>
+                                                          <td> 
+                                                          <form ref='uploadForm' id='uploadForm' action='/upload_soil_test_kit' method='post'
+                                                            onsubmit='displayFunction()' encType="multipart/form-data"
+                                                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                            <input type="file" name="sampleFile" id="sampleFile"/>
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                              </form>
+                                                          </td>
+                                                      
+                                                        </tr>
+                                                        {{!-- <tr>
+                                                          <td>2</td>
+                                                          <td>Farmer Data</td>
+                                                          <td> 
+                                                            <form ref='uploadForm' id='uploadForm' action='/upload_farmer_data' method='post'
+                                                              onsubmit='displayFunction()' encType="multipart/form-data"
+                                                              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                              <input type="file" name="sampleFile" id="sampleFile" />
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                            </form>
+                                                          </td>
+                                                        </tr> --}}
+
+                                                        <tr>
+                                                          <td>3</td>
+                                                          <td>Weather Data</td>
+                                                          <td> 
+                                                            <form ref='uploadForm' id='uploadForm' action='/' method='post'
+                                                              onsubmit='displayFunction()' encType="multipart/form-data"
+                                                              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                              <input type="file" name="sampleFile" id="sampleFile" />
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                            </form>
+                                                          </td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                          <td>4</td>
+                                                          <td>QP Price Data</td>
+                                                          <td> 
+                                                            <form ref='uploadForm' id='uploadForm' action='/upload_qp_price' method='post'
+                                                              onsubmit='displayFunction()' encType="multipart/form-data"
+                                                              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                              <input type="file" name="sampleFile" id="sampleFile" />
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                            </form>
+                                                          </td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                          <td>5</td>
+                                                          <td>Harvest Data</td>
+                                                          <td> 
+                                                            <form ref='uploadForm' id='uploadForm' action='/upload_qp_harvest' method='post'
+                                                              onsubmit='displayFunction()' encType="multipart/form-data"
+                                                              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                              <input type="file" name="sampleFile" id="sampleFile" />
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                            </form>
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>6</td>
+                                                          <td>Pest, Diseases, and Weeds Data</td>
+                                                          <td> 
+                                                            <form ref='uploadForm' id='uploadForm' action='/upload_pest_diseases_weed' method='post'
+                                                              onsubmit='displayFunction()' encType="multipart/form-data"
+                                                              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 row-header-float">
+                                                              <input type="file" name="sampleFile" id="sampleFile" />
+                                                          </td>
+                                                          <td class="text-center"> 
+                                                            <center>
+                                                            <input type='submit' value='Upload!' class="button-39" id="file_upload" />
+                                                            </center>
+                                                            </form>
+                                                          </td>
+                                                        </tr>
+                                                        
+                                                      </tbody>
+                                          </table>
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal top fade " id="ModalFarmerPerYear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">  
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h3 class="m-0 text-primary modal-title" id="exampleModalLabel"><b>Queen Pineapple Farmer Data</b></h3>
+                      
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover table-fixed" id="dataTableFarmerPerYear">
+                              <thead>
+                                  <tr>
+                                    <th>No.</th>
+                                    <th>Year Gathered</th>
+                                    <th>Farmer Count</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each farmer_count_peryear1}}
+                                      <tr>
+                                          <td>{{counts}}</td>
+                                      <td>{{year_gathered}}</td>
+                                      <td> {{farmer_count_per_year}}  </td>
+                                      <td class="text-center"> <center>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </button>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                      <i class="fa-regular fa-trash-can"></i>
+                                      </button>
+                                      </center></button></td>
+                                      </tr>
+                                    {{/each}}
+                                                                          </tbody>
+                                                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal top fade " id="ModalGeneralPop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">  
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h3 class="m-0 text-primary modal-title" id="exampleModalLabel"><b>Production Month and Year</b></h3>
+                      
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover table-fixed" id="dataTableGeneralPop">
+                              <thead>
+                                  <tr>
+       
+                                    <th>Year Gathered</th>
+                                    <th>Farmer Count</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each general_pop1}}
+                                      <tr>
+                                      <td> {{year_gathered}}  </td>
+                                      <td>{{formatCurrency population}}</td>
+                                      <td class="text-center"> <center>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </button>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                      <i class="fa-regular fa-trash-can"></i>
+                                      </button>
+                                      </center></button></td>
+                                      </tr>
+                                    {{/each}}
+                                                                          </tbody>
+                                                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal top fade " id="ModalLandArea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">  
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h3 class="m-0 text-primary modal-title" id="exampleModalLabel"><b>Queen Pineapple Farmer Data</b></h3>
+                      
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover table-fixed" id="dataTableFarmerPerYear">
+                              <thead>
+                                  <tr>
+                                    <th>No.</th>
+                                    <th>Year Gathered</th>
+                                    <th>Farmer Count</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each farmer_count_peryear1}}
+                                      <tr>
+                                          <td>{{counts}}</td>
+                                      <td>{{year_gathered}}</td>
+                                      <td> {{farmer_count_per_year}}  </td>
+                                      <td class="text-center"> <center>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                                      </button>
+                                      <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                      <i class="fa-regular fa-trash-can"></i>
+                                      </button>
+                                      </center></button></td>
+                                      </tr>
+                                    {{/each}}
+                                                                          </tbody>
+                                                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            <!-- Main page content-->
+            <div class="container-xl px-4 mt-n18" >
+                <div class="tabs-to-dropdown">
+                  <!-- Example Charts for Dashboard Demo-->
+                    <div class="tab-content" id="pills-tabContent">
+                      <br>
+                        <div class="row">
+
+                              <div class="col-lg-6 col-xl-3 col-md-6 mb-4">
+                                <div class="card bg-c-blue text-primary h-100">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="me-3">
+                                        
+                                        <div class="text-primary small">Total of QP Farmers
+                                          
+                                        </div>
+                                        <div class="text-lg fw-bold" id="farmer_counts">
+                                          
+                                        {{#if farmer_count.[0].count_farmer}}
+                                            {{farmer_count.[0].count_farmer}}
+                                          {{else}}
+                                            <span>------</span>
+                                          {{/if}}
+
+                                        </div>
+                                      </div>
+                                      
+                                      <img width="35" height="35" class="f-right" src="https://img.icons8.com/external-ddara-fill-ddara/35/15798f/external-woman-asian-farmer-gardener-orchardist-character-husbandman-avatar-ddara-fill-ddara.png" alt="external-woman-asian-farmer-gardener-orchardist-character-husbandman-avatar-ddara-fill-ddara"/>
+                                    </div>
+                                  </div>
+                                      <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-primary" href="#!">View All</a>
+                                    <div class="text-primary">
+                                        <select class="form-control selectpicker form-select f-right form-select-sm selection" id = "farmer_count">
+
+                                            {{#each farmer_count}}
+                                              <option value={{count_farmer}}>{{year_}}</option>
+                                            {{/each}}
+                                        </select>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-xl-3 col-md-6 mb-4">
+                                <div class="card bg-c-blue text-primary h-100">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="me-3">
+                                        <div class="text-primary small">QP Farm Area (Ha) {{date}}</div>
+                                        <div class="text-lg fw-bold" id="Area_counts">
+                                      
+                                        {{#if area_count.[0].Area_count}}
+                                            {{area_count.[0].Area_count}} ha
+                                          {{else}}
+                                            <span>------</span>
+                                          {{/if}}
+
+                                        </div>
+                                      </div>
+                                        <img width="35" height="35" class="f-right" src="https://img.icons8.com/ios-filled/35/15798f/world-map--v1.png" alt="world-map--v1"/>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-primary" href="#!">View All</a>
+                                    <div class="text-primary">
+                                      <select class="form-control selectpicker form-select f-right form-select-sm selection" id = "area_count">
+
+                                            {{#each area_count}}
+                                              <option value={{Area_count}}>{{year_}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-xl-3 col-md-6 mb-4">
+                                <div class="card bg-c-blue text-primary h-100">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      <div class="me-3">
+                                        <div class="text-primary small">QP Production (MT)</div>
+                                        <div class="text-lg fw-bold" id="Prod_counts">   
+                                        {{#if harvest_count.[0].production_count}}
+                                            {{harvest_count.[0].production_count}} MT
+                                          {{else}}
+                                            <span>------</span>
+                                          {{/if}}</div>
+                                      </div>
+                                    <img width="35" height="35" class="f-right" src="https://img.icons8.com/external-icongeek26-glyph-icongeek26/35/15798f/external-truck-vehicles-icongeek26-glyph-icongeek26-1.png" alt="external-truck-vehicles-icongeek26-glyph-icongeek26-1"/>
+                                    </div>
+                                  </div>
+                                      <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-primary" href="#!">View All</a>
+                                    <div class="text-primary">
+                                      <select class="form-control selectpicker form-select f-right form-select-sm selection" id = "prod_count">
+
+                                            {{#each harvest_count}}
+                                              <option value={{production_count}}>{{year_}}</option>
+                                            {{/each}}
+
+                                        </select>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-xl-3 col-md-6 mb-4">
+                                <div class="card bg-c-blue text-primary h-100">
+                                  <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                      
+                                      <div class="me-3">
+                                        
+                                        <div class="text-primary small">QP Farm Gate Price(php)    
+                                        
+                                          
+                                        </div>
+                                        <div class="text-lg fw-bold"  id = "price">  
+                                          {{#if qp_price.[0].price}}
+                                            {{qp_price.[0].price}} php
+                                          {{else}}
+                                            <span>------</span>
+                                          {{/if}}</div>
+                                      </div>
+                                      <img width="35" height="35" class="f-right" src="https://img.icons8.com/glyph-neue/35/15798f/price-tag.png" alt="price-tag"/>
+                                    </div>
+                                  </div>
+
+                                  <div class="card-footer d-flex align-items-center justify-content-between small">
+                                    <a class="text-primary" href="#!">View All</a>
+                                    <div class="text-primary">
+                                      <select class="form-control selectpicker form-select f-right form-select-sm selection" id = "qp_price">
+
+                                            {{#each qp_price}}
+                                              <option value={{price}}>{{year_}}</option>
+                                            {{/each}}
+                                        </select>
+                                      
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                        </div>
+
+                        
+                        <div id="soil_test" class="tab-pane active">
+                            <div class="row">
+
+                            <div class="col-xl-3 col-lg-3 col-md-12">
+                          <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Brief Overview</h6>
+                            </div>
+                            <div class="card-body">
+                                <p>Province in the Philippines located in the Bicol Region in Luzon. Its capital is Daet. The province borders Quezon to the west, Camarines Sur to the south, and the Philippine Sea to the north. It has historically been a Bikol-speaking region.</p>
+                                <p class="mb-0">Camarines Norte is the main producer of Queen pineapple with an estimated 3,000 farmers dependent on the industry. <br><br>
+                                  QP production started in Camarines Norte in the 1950s. Unlike other varieties commonly grown in the Philippines, the Queen or also called ‘Formosa’ is considered the sweetest.
+                                </p>
+<br>
+                                <div class="row">
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="card shadow mb-3 color-basud">
+                                    
+                                              <center>
+                                              <b class="text-primary text-primary-size">BASUD</b> 
+                                            </center>
+                                              
+                                      
+                                        </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-capalonga">
+                                            
+                                                <center>
+                                                <b class="text-primary text-primary-size">CAPALONGA</b> 
+                                              </center>
+                                                
+                                      
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="card shadow mb-3 color-daet">
+                                        
+                                                <center>
+                                                <b class="text-primary text-primary-size">DAET</b> 
+                                              </center>
+                                                
+                                            
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                           <div class="card shadow mb-3 color-jpang">
+                                            
+                                                <center>
+                                                <b class="text-primary text-primary-size">JPANG</b> 
+                                              </center>
+                                                
+                                          
+                                          </div>
+                                      </div>
+                                       <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-labo">
+                                        
+                                                <center>
+                                                <b class="text-primary text-primary-size">LABO</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-mercedes">
+                                            
+                                                <center>
+                                                <b class="text-primary text-primary-size">MERCEDES</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-paracale">
+                                            
+                                                <center>
+                                                <b class="text-primary text-primary-size">PARACALE</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-sanlorenzo">
+                                              
+                                                <center>
+                                                <b class="text-primary text-primary-size">SAN LORENZO</b> 
+                                              </center>
+                                                
+                                            
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3  color-sanvicente">
+                                            
+                                                <center>
+                                                <b class="text-primary text-primary-size">SAN VICENTE</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                       <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-staelena">
+                                              
+                                                <center>
+                                                <b class="text-primary text-primary-size ">STA ELENA</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                     <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3  color-talisay">
+                                              
+                                                <center>
+                                                <b class="text-primary text-primary-size">TALISAY</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+                                       <div class="col-xl-4 col-lg-6 col-md-6">
+                                          <div class="card shadow mb-3 color-vinzons">
+                                              
+                                                <center>
+                                                <b class="text-primary text-primary-size">VINZONS</b> 
+                                              </center>
+                                                
+                                              
+                                          </div>
+                                      </div>
+
+                                   </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9 col-md-12">
+                              <div class="card shadow mb-3 ">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Camarines Norte, Philippines</h6>
+                            </div>
+                                
+                                  <div id="map" style="height: 70vh" class="card-body img-fluid "></div>   
+
+                            
+                              </div>
+                                        
+                            </div>
+
+            
+                          <div class="col-xl-8 col-lg-8 col-md-6"> 
+                                    <div class="card shadow mb-3 ">
+                                      <div class="card-header py-3">
+                                         <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Area of Queen Pineapple in Camarines Norte</b> 
+                                              <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalGeneralPop" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                            </a>
+                            </div>
+                                          
+   
+                                                <div class="card-body"style="height: 65vh;"> 
+                                                    <canvas id ="line-area"></canvas>
+                                                  </div>
+                                        
+                                    </div>
+                          </div> 
+
+                          <div class="col-xl-4 col-lg-4 col-md-12"> 
+                                   <div class="card shadow mb-3 ">
+                              <div class="card-header py-3">
+                                 <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                  <b class="text-primary f-left margin-left-10">Area</b> 
+                                                                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalGeneralPop" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                            </a>
+                            </div>
+                                            <div class="card-body" style="height: 65vh;">       
+                                                          
+                                                      
+                                                         <canvas id ="land_area_pie"></canvas>
+                                                      
+                                                  </div>
+                                    </div>
+                          </div>
+
+                          <div class="col-xl-12 col-lg-12 col-md-12">
+                                  <div class="card shadow mb-3">
+                                      <div class="card-header py-3">
+<img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary text-left margin-left-10">Land Area of Queen Pineapple Farms {{date}}</b>  
+                            </div>
+                                      <div class="card-body">
+                                          
+                                              <div class="card-body" >                                      
+                                                      <table class="table table-hover table-fixed" id="dataTableLandArea">
+                                                                    <thead>
+                                                                        <tr>
+                                                                          <th>No.</th> 
+                                                                          <th>Municipality</th>
+                                                                          <th>Farm Area</th>
+                                                                          <th>Action</th>
+                                                                        </tr>
+                                                                      </thead>
+                                                                        <tbody>
+                                                                            {{#each qp_area}}
+                                                                            <tr>
+                                                                              <td>{{area_rank}} </td>
+                                                                                <td>{{muni_name}}</td>
+                                                                                <td> {{formatCurrency sum_area}}  <span class="f-right">Hectares</span></td>
+                                                                                <td class="text-center"> <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button></td>
+                                                                            </tr>
+                                                                            {{/each}}
+                                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                            </div>
+                                        </div>
+                          </div>
+                
+                               {{!-- <div class="row" id="dynamicdiv">
+                                </div> --}}
+                   
+                            </div>
+                        </div>
+
+                        <div id="qp_production" class="tab-pane fade">
+                          <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"  >
+                                    <div class="card shadow mb-3" >
+                                        <div class="card-body" style="height: 58vh;"> 
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Queen Pineapple Production </b> 
+                                              <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right margin-right-38 button-3" role="Button">View</button> 
+                                            </a>
+                                                      <form action="/action_page.php">
+                                              <select id="muni_select"  class="f-right form-select form-select-sm selectionPopulation margin-right-38">
+                                                {{#each cam_norte_municipality}}
+                                                  <option value={{muni_select}}>{{muni_select}}</option>
+                                                {{/each}}
+                                              </select>
+                                            </form>
+                                              <div class="card-body" style="height: 55vh;">
+                                                  
+                                                  <canvas id="chart-pineapple-population"></canvas>
+                                                    {{!-- <button class="btn btn-primary f-right" type="button" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#ModalDataPopulation">
+                                                      View Raw Data
+                                                      </button> --}}
+                                                      
+                                                </div>
+                                                
+                                        </div>
+                                      </div>
+                                </div>  
+
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-body">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Queen Pineapple Production Trend</b> 
+                                              <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalGeneralPop" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                            </a>
+                                              <div class="card-body">
+                                                <canvas id="line-general-pop"></canvas>
+                                              </div>  
+                                            </div>
+                                          </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-12"> 
+                                  <div class="card shadow mb-4">
+                                            <div class="card-body" >   
+                                              <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                <b class="text-primary f-left margin-left-10">QP Farm Gate Price Movement</b> 
+                                            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                            </a>                                            
+                                                <div class="card-body"> 
+                                                    <canvas id ="line_qp_price"></canvas>
+                                                  </div>
+                                            </div>
+                                        </div>  
+                              </div>
+                          </div>    
+                                
+                          <div class="card mb-2">
+                                <div class="card-body">
+                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                     <b class="text-primary f-left margin-left-10">Queen Pineapple Production Changes/Trend</b>                                 
+                                <div class="card-body">
+                                  <br>
+                                                <table id="datatableTrends">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>Municipality</th>
+                                                        <th>Changes</th>
+                                                        <th>{{population_percent.[0].pop_year2}}</th>
+                                                        <th>{{population_percent.[0].pop_year1}}</th>
+                                                        <th>Difference</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                      <tr>
+                                                        <th>Municipality</th>
+                                                        <th>Changes</th>
+                                                        <th>{{population_percent.[0].pop_year2}}</th>
+                                                        <th>{{population_percent.[0].pop_year1}}</th>
+                                                        <th>Difference</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                      </tr>
+                                                    </tfoot>  
+                                                        <tbody>
+                                                          {{#each population_percent}}
+                                                          <tr>
+                                                            <td>{{muni_name}}</td>
+                                                                          {{#redorgreen change_pop}}
+                                                                          <td>  <span class="text-danger">{{change_pop}} %<span class="f-right"> ▼ </span> </span></td>
+                                                                          {{else}}   
+                                                                              <td><span class="text-success">{{change_pop}} % <span class="f-right"> ▲ </span></span></td>
+                                                                          {{/redorgreen}}
+                                                                          
+                                                                          {{#redorgreen1 pop1 pop2}}
+                                                                            <td>{{formatCurrency pop2}}</td>
+                                                                            <td>{{formatCurrency pop1}}</td>
+                                                                            <td><h9 class="text-danger">{{formatCurrency diff_pop}}</h9></td>
+                                                                              <td>
+                                                                                <center>
+                                                                                  <div class="badge bg-danger text-white rounded-pill">Decreased</div>
+                                                                                </center>
+                                                                                
+                                                                              </td>
+                                                                          {{else}}
+                                                                            <td>{{formatCurrency pop2}}</td>
+                                                                              <td>{{formatCurrency pop1}}</td>
+                                                                              <td><h9 class="text-success">{{formatCurrency diff_pop}}</h9></td>
+                                                                              <td>
+                                                                                <center>
+                                                                                <div class="badge bg-success text-white rounded-pill">Increased</div>
+                                                                                </center>
+                                                                              </td>
+                                                                          {{/redorgreen1}}
+                                                                        
+                                                                          <td><center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center>
+                                                                          </td>
+                                                                        </tr>
+                                                                        {{/each}}
+                                                                      </tbody>
+                                                </table>
+                                </div>
+                                            </div>               
+                          </div>    
+
+                        </div>
+
+                        <div id="qp_yield" class="tab-pane fade">
+            
+
+                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                      <div class="card shadow mb-4">
+                                          <div class="card-body" >   
+                                              <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                <b class="text-primary f-left margin-left-10">Harvest Per Metric Ton</b> 
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right margin-right-38 button-3" role="Button">View</button> 
+                                                  </a>
+                                                  <form action="/action_page.php">
+                                                    <select id="year" class="f-right form-select form-select-sm selectionYear margin-right-38">
+                                                      <option value="All">All</option>
+                                                      <option value="2020">2020</option>
+                                                      <option value="2021">2021</option>
+                                                      <option value="2022">2022</option>
+                                                      <option value="2023">2023</option>
+                                                    </select>
+                                                  </form>           
+                                              <div class="card-body" style="height: 55vh;">
+                                                  <canvas id ="chartjs-js-harvest"  ></canvas>
+                                                </div>
+                                                </div>
+                                              </div> 
+                            </div>   
+
+                            <div class="row">
+                                  <div class="col-xl-6 col-lg-6 col-md-12">
+                                      <div class="card shadow mb-4">
+                                          <div class="card-body">   
+                                              <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                <b class="text-primary f-left margin-left-10">Trend of Expected Harvest</b>     
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right button-3" role="Button">View</button> 
+                                                  </a>                   
+                                                  <div class="card-body">
+                                                    <canvas id="line_expected_harvest"></canvas>  
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="card shadow mb-4">
+                                      <div class="card-body">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                              <b class="text-primary f-left margin-left-10">Expected QP Production {{date}} (per piece)</b> 
+                                                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right button-3" role="Button">View</button> 
+                                                  </a>
+                                                  <div class="card-body">
+                                   
+                                                        <canvas id ="pie_graph"></canvas>    
+                                                  </div>
+                                      </div>    
+                                    </div>
+                                  </div>
+                            </div>  
+                            
+                        </div>
+
+                        <div id="rbsba_" class="tab-pane fade">
+                              <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                      <div class="card shadow  mb-3">
+                                        <div class="card-body" style="height: 50vh;"> 
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <b class="text-primary f-left margin-left-10">RSBSA</b> 
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right button-3" role="Button">View</button> 
+                                                  </a>
+                                            <div class="card-body" style="height: 45vh;"> 
+                                              <canvas id="line-rbsba_year"></canvas>
+                                            </div>    
+                                        </div>
+                                      </div>
+                                </div>
+
+                                <div class="col-xl-5 col-lg-5 col-md-12">
+                                      <div class="card shadow mb-3">
+                                        <div class="card-body" style="height: 45vh;" >
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">RSBSA</b>       
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right  button-3" role="Button">View</button> 
+                                                  </a>
+                                                    <div class="card-body" style="height: 40vh;">
+                                                    <canvas id="chart-rbsba-status" ></canvas>  
+                                                </div>
+                                      
+                                        </div>  
+                                      </div>
+                                </div>
+
+                                <div class="col-xl-7 col-lg-7 col-md-12">
+                                      <div class="card shadow mb-3">
+                                        <div class="card-body" style="height: 45vh;" >
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">RSBSA Data per Municipalities</b>       
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                      data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                      <button class="text-white f-right button-3" role="Button">View</button> 
+                                                  </a>
+                                                  <div class="card-body" style="height: 40vh;">
+                                                    <canvas id="line-rbsba-muni" ></canvas>  
+                                                </div>
+                                      
+                                        </div>  
+                                      </div>
+                                </div>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                  <div class="card shadow  mb-4" style="height: 64vh;">
+                                    <div class="card-body" >
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">RSBSA Registered Farmers</b> 
+                                          <div class="card-body" style="height: 60vh;">
+                                            <br>
+                                                <table class="table table-hover table-fixed"  id="dataTableRbsba">
+                                                    <thead>
+                                                        <tr>   
+                                                          <th>Municipalities</th>
+                                                          <th>RSBSA Registered</th>
+                                                          <th>RSBSA Unregistered</th>
+                                                          <th>QP Farmers</th>
+                                                          <th>Percentage</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each rbsba_table}}
+                                                            <tr>
+                                                              <td>{{muni_name}} <span class="f-right"></span></td>
+                                                              <td>{{rbsba_registered}}</td>
+                                                              <td>{{rbsba_unregistered}}</td>
+                                                              <td>{{total_num}}</td>
+                                                              <td>
+                                                                <center>
+                                                                  <div class="badge bg-success text-white rounded-pill" style="width: 8vh;">{{registred_percentage}}%</div>
+                                                                  </center>
+                                                              </td>
+                                                              <td class="text-center"> <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button></td>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+                                          </div>                                                 
+                                    </div>
+                                  </div>
+                                </div>               
+                              </div> 
+
+                        </div>
+
+                        <div id="farmer_demo" class="tab-pane fade">
+
+                            <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"  >
+                                    <div class="card shadow mb-4" >
+                                      <div class="card-body" style="height: 50vh">
+                                            {{!-- <form action="/action_page.php">
+                                              <select id="muni_select_farmer"  class="f-right form-select form-select-sm selectionPopulation">
+                                                {{#each cam_norte_municipality}}
+                                                  <option value={{muni_select_farmer}}>{{muni_select_farmer}}</option>
+                                                {{/each}}
+                                              </select>
+                                            </form> --}}
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Trend of QP Farmers in Camarines Norte </b> 
+                                              <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                            <button class="text-white f-right margin-right-30 button-3" role="Button">View</button> 
+                                            </a>
+                                           <div class="card-body" style="height: 45vh">
+                                              <canvas id="line-farmer-peryear"></canvas>
+
+                                            </div>                           
+                                                  
+                                        </div>
+                                      </div>
+                                </div>  
+
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                              
+                                      <div class="card shadow mb-4">
+                                                <div class="card-body">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                      <b class="text-primary f-left margin-left-10">Farmers per Municipality</b> 
+                                                        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                            data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                                        </a>
+                                                          <div class="card-body">
+                                                              <canvas id ="bar_farmer_permuni"></canvas>  
+                                                          </div>  
+                                                  </div>
+                                      </div>
+                                </div>   
+
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                  <div class="card shadow  mb-4">
+                                    <div class="card-body">
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Age of QP Farmers Stacked Bar graph</b> 
+                                               <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                                            data-bs-target="#ModalFarmerPerYear" aria-expanded="false" aria-controls="collapseLayouts">
+                                                            <button class="text-white f-right button-3" role="Button">View</button> 
+                                                        </a>
+                                          <div class="card-body">
+                                              <canvas id="stackedChartID"></canvas>
+                                          </div>                                                 
+                                    </div>
+                                  </div>
+                                </div> 
+                                
+                            </div> 
+                        
+
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                  <div class="card shadow  mb-4">
+                                    <div class="card-body" style="height: 55vh">
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Farmers Classification</b> 
+                                                  <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalPackageTech" aria-expanded="false" aria-controls="collapseLayouts">
+                                              <img width="20" height="20" class="margin-left-10 f-right" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/20/007a6a/external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo.png" alt="external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo"/>                                       
+                                                </a>
+                                          <div class="card-body" style="height: 50vh">
+                                                <canvas id="farmer-classification"></canvas>
+                                          </div>                                                 
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>  
+
+                       
+
+                            {{!-- <div class="row">
+                              
+                                <div class="col-xl-3 col-lg-3 col-md-3">
+                                
+                                </div>
+                                  
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                  <div class="row" id="dynamicdiv">
+                                  </div>
+                                </div>
+                            </div>        --}}
+
+                            <div class="row">
+                              
+                                <div class="col-xl-7 col-lg-12 col-md-12">
+                                  <div class="card shadow  mb-4">
+                                    <div class="card-body"style="height: 45vh;">
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Farmer per Gender</b> 
+                                         <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalPackageTech" aria-expanded="false" aria-controls="collapseLayouts">
+                                              <img width="20" height="20" class="margin-left-10 f-right" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/20/007a6a/external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo.png" alt="external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo"/>                                       
+                                                </a>                                    <div class="card-body" style="height: 42vh;">
+                                            <canvas id="chart-line-gender-bar"></canvas>
+                                            
+                                          </div>                                                 
+                                    </div>
+                                  </div>
+                                </div>          
+
+                                <div class="col-xl-5 col-lg-12 col-md-12">
+                                  <div class="card shadow  mb-4">
+                                    <div class="card-body" style="height: 45vh;"> 
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Farmer per Gender</b> 
+                                                   <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalPackageTech" aria-expanded="false" aria-controls="collapseLayouts">
+                                              <img width="20" height="20" class="margin-left-10 f-right" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/20/007a6a/external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo.png" alt="external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo"/>                                       
+                                                </a>                                  <div class="card-body" style="height: 42vh;"> 
+                                            <canvas id="line-gender"></canvas>
+                                            
+                                        </div>
+                                                  
+                                    </div>
+                                  </div>
+                                </div>
+                                {{!-- <div class="col-xl-5 col-lg-5 col-md-6">
+                                      <div class="card shadow  mb-2">
+                                        <div class="card-body"style="height: 45vh;">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <b class="text-primary f-left margin-left-10">Percentage</b> 
+                                          <img width="20" height="20" class="margin-left-10 f-right" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/20/007a6a/external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo.png" alt="external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo"/>
+                                            <div class="card-body" style="height: 40vh;">
+                                              <canvas id="chart-line-doughnut-gender" ></canvas>  
+                                            </div>                                                 
+                                        </div>
+                                      </div>
+                                </div> --}}
+                                {{!-- <div class="col-xl-2 col-lg-4 col-md-12">
+
+                                  <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-6">
+                                      <div class="card shadow  mb-2">
+                                        <div class="card-body"style="height: 21vh;">
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <b class="text-primary f-left margin-left-10">Percentage</b> 
+                                            <div class="card-body" style="height: 20vh;">
+                                              <canvas id="chart-line-doughnut-gender" ></canvas>  
+                                            </div>                                                 
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-6">
+                                      <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                          <div class="card shadow  mb-2">
+                                            <div class="card-body"style="height: 11vh;">
+                                              
+                                                <b class="text-primary f-left margin-left-10 h8">Male</b> 
+                                                  <div class="card-body text-center" style="height: 9vh;">
+                                      
+
+                                                    {{#if donut_data.[0].Male}}
+                                                              <b class="text-weight-bold text-primary heading-malaki"> ♀ {{donut_data.[0].Male}}</b>
+                                                              {{else}}
+                                                              <span>------</span>
+                                                              {{/if}}
+                                                              <br>
+                                                              
+                                                  
+                                                  </div>                                                 
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                          <div class="card shadow  mb-2">
+                                            <div class="card-body"style="height: 11vh;">
+                                                <span class="text-primary f-left margin-left-10 h8">Female</span>
+                                                  <div class="card-body text-center" style="height: 9vh;">
+                                                    
+                                                    {{#if donut_data.[0].Female}}
+                                                            <b class="text-weight-bold text-primary heading-malaki"> ♂ {{donut_data.[0].Female}}</b>
+                                                              {{else}}
+                                                              <span>------</span>
+                                                              {{/if}}
+                                                              
+                                                
+                                                  </div>                                                 
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                
+                                </div> --}}
+
+                                {{!-- <div class="col-xl-4 col-lg-4 col-md-12">
+                                    <div class="card shadow  mb-4">
+                                    <div class="card-body"style="height: 33vh;">
+                                        <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                        <b class="text-primary f-left margin-left-10">Farmers Classification</b> 
+                                          <div class="card-body" style="height: 28vh;">
+                                            <canvas id="chartjs-bar-age" ></canvas>   
+                                          </div>                                                 
+                                    </div>
+                                  </div>
+                                </div> --}}
+
+                            </div>  
+
+                            
+
+                            {{!-- cards sa baba --}}
+                            {{!-- <div class="row">
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow">
+                                                <div class="card-body">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">Total Farmers <h6 class="f-right">{{date}}</h6></h6><br>                            
+                                                  <div class="card-body">
+                                                    <h2 class="text-center text-black text-bold">
+                                                      {{#if farmer_count.[0].count_farmer}}
+                                                      {{formatCurrency farmer_count.[0].count_farmer}}
+                                                      {{else}}
+                                                      <span>------</span>
+                                                      {{/if}}
+                                                      <p class="h7 text-center">Total QP Farmers </p>
+                                                      </h2>
+                                                </div>
+                                                </div>  
+                                            </div>    
+                                      </div>
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow mb-4">
+                                              <div class="card-body">
+                                                  <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">Active Farmers <h6 class="f-right">{{date}}</h6></h6><br> 
+                                                <div class="card-body">
+                                                    
+                                                </div>
+                                              </div>   
+                                          </div>    
+                                      </div>
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow mb-4">
+                                          <div class="card-body">
+                                                  <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">Tenant Farmers</h6>
+                                                  <br>                            
+                                                  <div class="card-body">
+                                                    <h2 class="text-center text-black text-bold">
+                                                      {{#if farmer_count.[0].count_farmer}}
+                                                      {{formatCurrency farmer_count.[0].count_farmer}}
+                                                      {{else}}
+                                                      <span>------</span>
+                                                      {{/if}}
+                                                        <p class="h7 text-center">Tenant Farmers </p>
+                                                      </h2>
+                                                      
+                                                </div>
+                                                  
+                                              </div>     
+                                          </div>    
+                                      </div>
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow mb-4">
+                                              <div class="card-body">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">Farmer-Owner<h6 class="f-right">{{date}}</h6></h6><br> 
+                                                <div class="card-body">
+                                              
+                                                </div>
+                                              </div>
+                                          </div>    
+                                      </div>
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow mb-4">
+                                              <div class="card-body">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">Cultivators <h6 class="f-right">{{date}}</h6></h6><br> 
+                                                <div class="card-body">
+                                                
+                                                </div>
+                                              </div> 
+                                        </div>    
+                                      </div>
+
+                                      <div class="col-xl-2 col-lg-4 col-md-6">
+                                          <div class="card shadow mb-4">
+                                              <div class="card-body">
+                                                  <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                  <h6 class="font-weight-bold f-left text-primary margin-left-10">RBSBA Registered <h6 class="f-right">{{date}}</h6></h6><br> 
+                                                <div class="card-body">
+                                        
+                                                </div>
+                                              </div>      
+                                          </div>    
+                                      </div>
+
+                            </div>   --}}
+
+                          {{!-- dynamic progress bar --}}
+                            {{!-- <div class="row">
+        
+                              <div class="col-xl-4 col-lg-12"> 
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                          <h6 class="m-0 font-weight-bold text-primary">Queen Pineapple Farmers (per Municipality)</h6> 
+                                        <div class="card-body" id="progressbarid"></div>
+                                      </div>
+                                </div>
+                              </div>
+                              
+                            </div> --}}
+
+
+
+
+                        </div>
+
+                        <div id="qp_technologies" class="tab-pane fade">
+
+                          <div class="row">
+
+                                  <div class="col-xl-12 col-lg-12 col-md-12">
+                                      <div class="card shadow mb-4">
+                                          <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                               <b class="text-primary f-left margin-left-10">Package Technology for Queen Pineapple</b>
+                                             <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="modal"
+                                              data-bs-target="#ModalPackageTech" aria-expanded="false" aria-controls="collapseLayouts">
+                                              <img width="20" height="20" class="margin-left-10 f-right" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/20/007a6a/external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo.png" alt="external-faq-info-help-template-for-customer-query-basic-bold-tal-revivo"/>                                       
+                                                </a>
+                                          <br>
+                                            <div class="card-body">
+
+
+                                              <table class="table table-hover table-fixed"  id="dataTablePackage">
+                                                    <thead>
+                                                        <tr>
+                                                          <th>No.</th>
+                                                          <th>Title</th>
+                                                          <th>Category</th>
+                                                          <th>Author</th>
+                                                          <th>Year Created</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each farmersqp_}}
+                                                            <tr>
+                                                              <td>{{f_id}}</td>
+                                                              <td>{{fullname}}</td>
+                                                              <td>{{barangay}}</td>
+                                                              <td>{{municipality}}</td>
+                                                              <td>{{gender}}</td>
+                                                              <td class="text-center"> <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                  </div>
+
+                                  <div class="col-xl-12 col-lg-12 col-md-12">
+                                      <div class="card shadow mb-4">
+                                          <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                <b class="text-primary f-left margin-left-10">List of Gender Mainstreaming Activities for Queen Pineapple</b>                                 
+                                                <div class="card-body">
+                                              <table class="table table-hover table-fixed"  id="dataTableFarmers">
+                                                    <thead>
+                                                        <tr>
+                                                          <th>No.</th>
+                                                          <th>Title</th>
+                                                          <th>Category</th>
+                                                          <th>Author</th>
+                                                          <th>Year Created</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each farmersq_p}}
+                                                            <tr>
+                                                              <td>{{f_id}}</td>
+                                                              <td>{{fullname}}</td>
+                                                              <td>{{barangay}}</td>
+                                                              <td>{{municipality}}</td>
+                                                              <td>{{gender}}</td>
+                                                              <td class="text-center"> <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button></td>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+
+
+                                            </div>
+                                          </div>
+                                        </div>
+                            </div>
+
+                                  {{!-- <div class="col-xl-12 col-lg-4 col-md-12">
+                                      <div class="card shadow mb-4">
+                                          <div class="card-body">
+                                            <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                          <b class="text-primary f-left margin-left-10">Actual Harvest of {{date}}</b> <br>
+                                              <div class="card-body">
+                                              <div class="chartdiv" style="height: 70vh"></div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                  </div> --}}
+
+                          </div>
+
+
+
+                        </div> 
+
+                        <div id="pest_diseases" class="tab-pane fade">
+                          <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"  >
+                                    <div class="card shadow mb-4" >
+                                      <div class="card-body">
+                                          
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Common Pests of Queen Pineapple</b>      
+                                            <div class="card-body">
+                                              <br>
+                                              <table class="table table-hover table-fixed"  id="dataTablePests">
+                                                    <thead>
+                                                        <tr>
+                                                          <th>No.</th>
+                                                          <th>Common Name</th>
+                                                          <th>Description</th>
+                                                          <th>Incident Report</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each pest_data}}
+                                                            <tr>
+                                                              <td>{{count_}}</td>
+                                                              <td>{{name}}</td>
+                                                              <td>{{description}}</td>
+                                                              <td>{{percent}}</td>
+                                                            
+                                                              <td class="text-center"> 
+                                                                <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button>
+                                                              </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+                                            </div>                           
+                                                  
+                                        </div>
+                                      </div>
+                                </div>  
+
+                                {{!-- <div class="col-xl-4 col-lg-12 col-md-12">
+                              
+                                      <div class="card shadow mb-4">
+                                                <div class="card-body" style="height: 55vh">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                      <b class="text-primary f-left margin-left-10">Pie Chart about the incidence of pests</b> 
+                                                          
+                                                          <div class="card-body" style="height: 50vh">
+                                                              <canvas id ="bar_farmer_permuni"></canvas>  
+                                                          </div>  
+                                                  </div>
+                                      </div>
+                                  </div>     --}}
+                                
+                          </div> 
+
+                          <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-4">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="">
+                                      <h6 class="m-0 font-weight-bold text-primary">Images of QP Pests</h6>
+                                    </div>
+                                  <div class="card-body">
+                                  
+                                    <div class="row">
+                                    
+                                        <div class="col-md-12">
+                                          <div class="featured-carousel owl-carousel">
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Grub.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">White Grub / Ulalo</a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Beetle.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Rhinoceros Beetle / Oang</a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Souring.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Souring Beetle / </a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Mealybug.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Mealy Bug / </a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Termites.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Termites / Anay</a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Pests/Ants.jpg);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Ants / Langgam / Sirum</a></h3>
+                                                  <span>Pests</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                </div>
+                          </div>
+
+                          <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"  >
+                                    <div class="card shadow mb-4" >
+                                      <div class="card-body">
+                                          
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Diseases of Queen Pineapple</b>      
+                                            <div class="card-body" >
+                                              <br>
+                                              <table class="table table-hover table-fixed"  id="dataTableDiseases">
+                                                    <thead>
+                                                        <tr>
+                                                          <th>No.</th>
+                                                          <th>Common Name</th>
+                                                          <th>Description</th>
+                                                          <th>Incident Report</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each diseases_data}}
+                                                            <tr>
+                                                              <td>{{count_}}</td>
+                                                              <td>{{name}}</td>
+                                                              <td>{{description}}</td>
+                                                              <td>{{percent}}</td>
+                                                            
+                                                              <td class="text-center"> 
+                                                                <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button>
+                                                              </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+                                            </div>                           
+                                                  
+                                        </div>
+                                      </div>
+                                </div>  
+
+                                {{!-- <div class="col-xl-4 col-lg-12 col-md-12">
+                              
+                                      <div class="card shadow mb-4">
+                                                <div class="card-body" style="height: 55vh">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                      <b class="text-primary f-left margin-left-10">Pie Chart about the Diseases if Queen Pineapple</b> 
+                                                          
+                                                          <div class="card-body" style="height: 50vh">
+                                                              <canvas id ="bar_farmer_permuni"></canvas>  
+                                                          </div>  
+                                                  </div>
+                                      </div>
+                                  </div>     --}}
+                                
+                          </div> 
+
+                          <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-4">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="">
+                                      <h6 class="m-0 font-weight-bold text-primary">Images of QP Diseases</h6>
+                                    </div>
+                                  <div class="card-body">
+                                    
+                                  <div class="row">
+                                      
+                                        <div class="col-md-12">
+                                          <div class="featured-carousel owl-carousel">
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/anthracnose.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Anthracnose</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/bacterial-heart-rot.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Bacterial Heart Rot</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/butt-rot.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Butt Rot</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/Leaf-Spot.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Leaf Spot</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/leaf-blotch.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Leaf Blotch</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/phytophthora-heart-rot.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Phytophthora Heart Rot</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/phytophthora-root-rot.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Phytophthora Root Rot</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/pineapple-blight.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Pineapple Bligh</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Diseases/pineapple-mealybug-wilt-diseases.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#" >Pineapple Mealy Bud Wilt Diseases</a></h3>
+                                                  <span>Diseases</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+
+                                  </div>
+                                </div>
+                          </div>
+
+                          <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"  >
+                                    <div class="card shadow mb-4" >
+                                      <div class="card-body">
+                                          
+                                          <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                            <b class="text-primary f-left margin-left-10">Weeds in Queen Pineapple Farms</b>      
+                                            <div class="card-body">
+                                              <br>
+                                            <table class="table table-hover table-fixed"  id="dataTableWeeds">
+                                                    <thead>
+                                                        <tr>
+                                                          <th>No.</th>
+                                                          <th>Common Name</th>
+                                                          <th>Description</th>
+                                                          <th>Incident Report</th>
+                                                          <th>Action</th>
+                                                        </tr>
+                                                      </thead>
+                                                        <tbody>
+                                                            {{#each weeds_data}}
+                                                            <tr>
+                                                              <td>{{count_}}</td>
+                                                              <td>{{name}}</td>
+                                                              <td>{{description}}</td>
+                                                              <td>{{percent}}</td>
+                                                            
+                                                              <td class="text-center"> 
+                                                                <center>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark me-2">
+                                                                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                            </button>
+                                                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                                                              <i class="fa-regular fa-trash-can"></i>
+                                                                            </button>
+                                                                            </center></button>
+                                                              </td>
+                                                            </tr>
+                                                            {{/each}}
+                                                          </tbody>
+                                              </table>
+                                            </div>                           
+                                                  
+                                        </div>
+                                      </div>
+                                </div>  
+
+                                {{!-- <div class="col-xl-4 col-lg-5 col-md-12">
+                              
+                                      <div class="card shadow mb-4">
+                                                <div class="card-body" style="height: 55vh">
+                                                    <img width="18" height="18" class="f-left" src="https://img.icons8.com/pastel-glyph/18/096f67/website-analytics--v1.png" alt="website-analytics--v1"/>
+                                                      <b class="text-primary f-left margin-left-10">Weeds in Queen Pineapple Farms</b> 
+                                                          
+                                                          <div class="card-body" style="height: 50vh">
+                                                              <canvas id ="bar_farmer_permuni"></canvas>  
+                                                          </div>  
+                                                  </div>
+                                      </div>
+                                  </div>     --}}
+                                
+                          </div> 
+
+                          <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-4">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="">
+                                      <h6 class="m-0 font-weight-bold text-primary">Images of Weeds in Queen Pineapple</h6>
+                                    </div>
+                                  <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                          <div class="featured-carousel owl-carousel">
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/DevilWeed.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3 class="font-weight-bold"><a href="#">Devil Weed</a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/GaleofWild.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3><a href="#" class="font-weight-bold">Gale of Wind - Carry Me Seed / Sampasampalukan</a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/GoatWeed.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3><a href="#" class="font-weight-bold">Goat Weed / Bulak Manok</a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/LittleIronweed.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3><a href="#" class="font-weight-bold">Little Ironweed / Kanding Kanding </a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/Nimblewell.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3><a href="#" class="font-weight-bold">Nimblewill</a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="item">
+                                              <div class="work">
+                                                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/Weeds/WildPoinsettia.png);">
+                                                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="ion-ios-search"></span>
+                                                  </a>
+                                                </div>
+                                                <div class="text pt-3 w-100 text-center">
+                                                  <h3><a href="#" class="font-weight-bold">Wild Poinsettia</a></h3>
+                                                  <span>Weeds</span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+
+                        <div id="weather_data" class="tab-pane fade">
+                            <div class="row">
+                              <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-3">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Weather Data in Camarines Norte (10 years)</h6>
+                                  </div>
+                                  <div class="card-body">
+                                    <canvas id="chartjs-line-weather"></canvas>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-xl-6 col-lg-12" >
+                                <div class="card shadow mb-4">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Monthly Data</h6>
+                                  </div>
+                                  <div class="card-body">
+                                    <canvas id="chartjs-line-weather"></canvas>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-6 col-lg-12" >
+                                <div class="card shadow mb-4">
+                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Typhoon Data</h6>
+                                  </div>
+                                  <div class="card-body">
+                                    <canvas id="chartjs-line-weather"></canvas>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+                        
+      
+                        
+
+                    </div>
+
+
+                </div>
+          </main>
+
+          <footer class="footer-admin mt-auto footer-light">
+            <div class="container-xl px-4">
+              <div class="row">
+                <div class="col-md-6 small">Copyright © Your Website 2021</div>
+                <div class="col-md-6 text-md-end small">
+                  <a href="#!">Privacy Policy</a>
+                  ·
+                  <a href="#!">Terms &amp;Conditions</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+
+    </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js">  </script>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="/js/doughnut_and_pie.js"></script>
+    <script src="/js/experiment.js"></script>
+    <script src="/js/sb-admin-2.js"></script>
+    <script src="/js/dynamicdiv.js"></script>
+    <script src="/js/gender_graph.js"></script>
+    <script src="/js/treemap.js"></script>
+    <script src="/js/progressbarqpcount.js"></script>
+    <script src="/js/pineapple_population.js"></script>
+    <script src="/js/harvest_data.js"></script>
+    <script src="/js/weather_linegraph.js"></script>
+    <script src="/js/weather_data.js"></script>
+    <script src="/js/expected_harvest.js"></script>
+    <script src="/js/weather-api.js"></script>
+
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script type="text/javascript" src="/js/cn_data_2.js"></script>
+    <script type="text/javascript">
+      var map = L.map('map').setView([14.100072, 122.6615868], 10);
+
+      var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      }).addTo(map);
+
+      // get color depending on population density value
+      function getColor(d) {
+        return d == "Sta Elena" ? 'rgba(100, 173, 115, 1)':
+          d == "Daet" ? 'rgba(237, 106, 87, 1)' :
+            d == "Labo" ?  'rgba(72, 143, 49, 1)':
+              d == "Capalonga" ? 'rgba(239, 216, 80, 1)' :
+                d == "Basud" ? 'rgba(175, 209, 124, 1)' :
+                  d == "Jose Panganiban" ? 'rgba(206,126,0, 0.80)' :
+                    d == "Mercedes" ? 'rgba(61, 154, 112, 1)' :
+                      d == "San Lorenzo Ruiz" ? 'rgba(214, 225, 132, 1)' :
+                        d == "Paracale" ? 'rgba(255, 244, 160, 1)':
+                          d == "San Vicente" ? 'rgba(247, 176, 101, 1)' :
+                            d == "Talisay" ? 'rgba(251, 178, 104, 1)' :
+                              d == "Vinzons" ? 'rgba(246, 143, 90, 1)' : 'rgba(100, 173, 115, 1)';
+      }
+
+      function style(feature) {
+        return {
+          weight: 2,
+          opacity: 1,
+          color: 'white',
+          dashArray: '3',
+          fillOpacity: 0.7,
+          fillColor: getColor(feature.properties.ADM3_EN)
+        };
+      }
+    map.invalidateSize(); 
+
+      var info = L.control();
+
+      info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+      };
+
+      info.update = function (props) {
+        this._div.innerHTML = '<h4></h4>' + (props ?
+          '<b>' + 'Pangalan ko'+ '</b><br />' + 'Hoooy'+ ' people / mi<sup>2</sup>' : 'Hover over a state');
+      };
+
+      info.addTo(map);
+
+      function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+          weight: 5,
+          color: '#666',
+          dashArray: '',
+          fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+          layer.bringToFront();
+        }
+
+        info.update(layer.feature.properties);
+      }
+
+      var geojson;
+
+      function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+        info.update();
+      }
+
+      function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+      }
+
+      function onEachFeature(feature, layer) {
+        layer.on({
+          mouseover: highlightFeature,
+          mouseout: resetHighlight,
+          click: zoomToFeature
+        });
+      }
+
+      /* global statesData */
+      geojson = L.geoJson(geodata, {
+        style: style,
+        onEachFeature: onEachFeature
+      }).addTo(map);
+
+      map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+
+      var legend = L.control({ position: 'bottomright' });
+
+      legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend');
+        var grades = [0, 10, 20, 50, 100, 200, 500, 1000];
+        var labels = [];
+        var from, to;
+
+        for (var i = 0; i < grades.length; i++) {
+          from = grades[i];
+          to = grades[i + 1];
+
+          labels.push(
+            '<i style="background:' + getColor(from + 1) + '"></i> ' +
+            from + (to ? '&ndash;' + to : '+'));
+        }
+
+        div.innerHTML = labels.join('<br>');
+        return div;
+      };
+
+      legend.addTo(map);
+
+
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#FarmerTable').dataTable({"order": [],});    
+        $('#PackageTable').dataTable({"order": [],} );
+        $('#PlantedTable').dataTable({   "order": [], "searching": true,"lengthChange":true });  
+        $('#HarvestTable').dataTable({"order": [],} );
+          $('#ChangesTable').dataTable({"order": [],"pageLength": 6, "searching": false,"lengthChange":false});
+        $('#ExpectedHarvestTable').dataTable({ "order": [], "searching": true,"lengthChange":false,"pageLength": 8,    "info": false,  });
+          $('#LandAreaTable').dataTable({ "order": [], "searching": true,"lengthChange":true, "pageLength": 7, "info": true,  });
+          $('#RankingTable').dataTable({ "order": [], "searching": true,"lengthChange":false,"pageLength": 8,    "info": false,  });
+
+          $('#soil-test-kit').add('click',() => {
+              map.invalidateSize();
+          })
+      });
+
+    </script>
+    <script>
+  const $tabsToDropdown = $(".tabs-to-dropdown");
+
+  function generateDropdownMarkup(container) {
+    const $navWrapper = container.find(".nav-wrapper");
+    const $navPills = container.find(".nav-pills");
+    const firstTextLink = $navPills.find("li:first-child a").text();
+    const $items = $navPills.find("li");
+    const markup = `
+      <div class="dropdown d-md-none">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ${firstTextLink}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+          ${generateDropdownLinksMarkup($items)}
+        </div>
+      </div>
+    `;
+    $navWrapper.prepend(markup);
+  }
+
+  function generateDropdownLinksMarkup(items) {
+    let markup = "";
+    items.each(function () {
+      const textLink = $(this).find("a").text();
+      markup += `<a class="dropdown-item" href="#">${textLink}</a>`;
+    });
+
+    return markup;
+  }
+
+  function showDropdownHandler(e) {
+    // works also
+    //const $this = $(this);
+    const $this = $(e.target);
+    const $dropdownToggle = $this.find(".dropdown-toggle");
+    const dropdownToggleText = $dropdownToggle.text().trim();
+    const $dropdownMenuLinks = $this.find(".dropdown-menu a");
+    const dNoneClass = "d-none";
+    $dropdownMenuLinks.each(function () {
+      const $this = $(this);
+      if ($this.text() == dropdownToggleText) {
+        $this.addClass(dNoneClass);
+      } else {
+        $this.removeClass(dNoneClass);
+      }
+    });
+  }
+
+  function clickHandler(e) {
+    e.preventDefault();
+    const $this = $(this);
+    const index = $this.index();
+    const text = $this.text();
+    $this.closest(".dropdown").find(".dropdown-toggle").text(`${text}`);
+    $this
+      .closest($tabsToDropdown)
+      .find(`.nav-pills li:eq(${index}) a`)
+      .tab("show");
+  }
+
+  function shownTabsHandler(e) {
+    // works also
+    //const $this = $(this);
+    const $this = $(e.target);
+    const index = $this.parent().index();
+    const $parent = $this.closest($tabsToDropdown);
+    const $targetDropdownLink = $parent.find(".dropdown-menu a").eq(index);
+    const targetDropdownLinkText = $targetDropdownLink.text();
+    $parent.find(".dropdown-toggle").text(targetDropdownLinkText);
+  }
+
+  $tabsToDropdown.each(function () {
+    const $this = $(this);
+    const $pills = $this.find('a[data-toggle="pill"]');
+
+    generateDropdownMarkup($this);
+
+    const $dropdown = $this.find(".dropdown");
+    const $dropdownLinks = $this.find(".dropdown-menu a");
+
+    $dropdown.on("show.bs.dropdown", showDropdownHandler);
+    $dropdownLinks.on("click", clickHandler);
+    $pills.on("shown.bs.tab", shownTabsHandler);
+  });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+
+
+  </body>
+
+  </html>
