@@ -1,0 +1,38 @@
+{
+  "name": "form",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "chartjs-plugin-labels": "^1.1.0",
+    "cookie-parser": "~1.4.4",
+    "csvtojson": "^2.0.10",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-fileupload": "1.4.0",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^5.3.1",
+    "filereader": "^0.10.3",
+    "formidable": "^2.1.1",
+    "fs": "^0.0.1-security",
+    "hbs": "^4.2.0",
+    "highcharts-export-server": "^5.0.0",
+    "http-errors": "~1.6.3",
+    "morgan": "^1.10.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.5",
+    "nodemon": "^3.1.10",
+    "openweather-api-node": "^3.1.2",
+    "simple-datatables": "^8.0.0",
+    "simple-datatables-classic": "^2.1.14",
+    "xlsx": "^0.18.5"
+  }
+}
