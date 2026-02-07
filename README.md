@@ -19,3 +19,13 @@ Students are required to:
 - Manual Test Plan
 - Test Case Documentation
 - Defect / Bug Reports
+
+## Tools Required
+Students must install the following before starting:
+- Visual Studio Code
+- Node.js (LTS version)
+- Git
+- MySQL or MariaDB
+- HeidiSQL (recommended DB client)
+
+No additional VS Code extensions are required.
